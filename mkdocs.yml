@@ -1,0 +1,26 @@
+site_name: ims-docs
+
+theme:
+  name: material
+  features:
+  - content.action.edit
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - '首页': index.md
+  - 'Web API 接口': WebAPI.md
