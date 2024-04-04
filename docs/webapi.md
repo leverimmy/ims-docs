@@ -10,7 +10,7 @@
 
     ???+ warning
         这里加了 `nickname` 字段。
-
+    
     | 参数名称 | 类型   | 参数说明 | 参数示例    |
     | -------- | ------ | -------- | ----------- |
     | username | string | 用户名称 | "A1phaN"    |
@@ -110,7 +110,7 @@
 
     ???+ warning
         这里的 lastLoginTime 的类型没有确定。
-
+    
     | 参数名称    | 类型   | 参数说明               | 参数示例                   |
     | ----------- | ------ | ---------------------- | -------------------------- |
     | nickname    | string | 用户昵称              | "A1phaN"                   |
@@ -409,10 +409,11 @@
 
     | 参数名称        | 类型                                   | 参数说明            | 参数示例                       |
     | --------------- | -------------------------------------- | ------------------- | ------------------------------ |
-    | username        | string                                 | 用户名称           |      "Jimmy"                          |
-    | groupID | string | 群聊 ID | "111"                    |                                |
+    | username        | string                                 | 被申请用户名称           |      "Jimmy"                          |
+    | groupID | string | 被申请群聊 ID | "111"                    |                                |
+    | sender | string | 申请人用户名称 | "Ubec" |
     | type            | string                                 | "group" or "friend" | "group"                        |
-    | msg         | string                                 | 申请语              | "Please let me join in!"       |
+    | reason         | string                                 | 申请语              | "Please let me join in!"       |
 
 === "响应参数"
 
