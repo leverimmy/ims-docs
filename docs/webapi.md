@@ -481,7 +481,7 @@
     | code        | number | 状态码                                          |                0                 |
     | msg     | string |        返回信息                                               | "Application sent successfully." |
 
-## /request/apply
+## /request/accept
 
 场景：通过他人的好友请求/入群请求
 
@@ -502,7 +502,7 @@
     | 参数名称 | 类型   | 参数说明          | 参数示例                          |
     | -------- | ------ | ----------------- | --------------------------------- |
     | code     | number | 状态码 | 0                                  |
-    | msg  | string |    返回信息               | "Application apply successfully." |
+    | msg  | string |    返回信息               | "Application accepted successfully." |
 
 ## /request/reject
 
@@ -526,7 +526,7 @@
     | 参数名称 | 类型   | 参数说明          | 参数示例                          |
     | -------- | ------ | ----------------- | --------------------------------- |
     | code     | number | 状态码 |  0                                 |
-    | msg  | string |     返回信息              | "Application apply successfully." |
+    | msg  | string |     返回信息              | "Application rejected successfully." |
 
 ## /post/persistence（未整理）
 
