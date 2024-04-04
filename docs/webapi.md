@@ -149,7 +149,7 @@
     | code | number | 状态码 | 0 |
     | msg   | string | 若失败，返回错误信息 | "The username is invalid." |
 
-## user/reset
+## /user/reset（已弃用）
 
 ???+ danger
     该接口已被弃用。
@@ -173,7 +173,7 @@
     | code | number | 状态码 | 0 |
     | errmsg   | string | 若失败，返回错误信息 | "The password is too simple." |
 
-## /group
+## /group（未整理）
 
 ???+ danger
     该接口仍未完工。
@@ -199,7 +199,7 @@
     | ]                                       |          |                      |                                                |
     | errmsg                                  | string   | 若失败，返回错误信息 | "Error occurred due to Internal Server Error." |
 
-## /group/edit
+## /group/edit（未整理）
 
 ???+ danger
     该接口仍未完工。
@@ -223,7 +223,7 @@
     | -------- | ------ | -------------------- | --------------------- |
     | errmsg   | string | 若失败，返回错误信息 | "Invalid group name." |
 
-## /group/create
+## /group/create（未整理）
 
 ???+ danger
     该接口仍未完工。
@@ -353,7 +353,7 @@
     | code | number | 状态码 | 0 |
     | msg   | string | 若失败，返回错误信息 | "Such friend does not exist." |
 
-## /remove/group
+## /remove/group（未整理）
 
 ???+ danger
     该接口仍未完工。
@@ -427,7 +427,7 @@
     | msg                                  | string   | 若失败，返回错误信息   | "Such user does not exist." |
 
 
-## /search/record
+## /search/record（未整理）
 
 ???+ danger
     该接口仍未完工。
@@ -527,7 +527,7 @@
     | code     | number | 状态码 |  0                                 |
     | msg  | string |     返回信息              | "Application apply successfully." |
 
-## /post/persistence
+## /post/persistence（未整理）
 
 ???+ danger
     该接口仍未完工。
@@ -553,10 +553,10 @@
     | -------- | ------ | -------------------- | ------------------------------------------ |
     | errmsg   | string | 若失败，返回错误信息 | "Sending unsuccessfully due to Network Error." |
 
-## /post/notify
+## /post/notify（未整理）
 
-## /post/send
+## /post/send（未整理）
 
-## /fetch/sync
+## /fetch/sync（未整理）
 
-## /fetch/roam
+## /fetch/roam（未整理）
