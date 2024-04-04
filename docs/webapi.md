@@ -279,7 +279,7 @@
 
     | 参数名称                                | 类型     | 参数说明             | 参数示例                                       |
     | --------------------------------------- | -------- | -------------------- | ---------------------------------------------- |
-    | username_list                            | string[] | 好友用户名称列表         | ["Jimmy", "LittleSeven", "Ubec"] |
+    | usernameList                            | string[] | 好友用户名称列表         | ["Jimmy", "LittleSeven", "Ubec"] |
     | code | int | 状态码 | 0 |
     | msg                                  | string   | 若失败，返回错误信息 | "Error occurred due to Internal Server Error." |
 
