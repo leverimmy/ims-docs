@@ -21,7 +21,7 @@
 
     | 参数名称 | 类型   | 参数说明             | 参数示例                      |
     | -------- | ------ | -------------------- | ----------------------------- |
-    | code | int | 状态码 | 0 |
+    | code | number | 状态码 | 0 |
     | msg   | string | 若失败，返回错误信息 | "The password is too simple." |
 
 ## /login
@@ -42,7 +42,7 @@
     | 参数名称    | 类型   | 参数说明                    | 参数示例                                 |
     | ----------- | ------ | --------------------------- | ---------------------------------------- |
     | token       | string | 若成功，返回⽤户 token      | "x-abcdefghijklmnopqrstuvwxyz"           |              |
-    | code | int | 状态码 | 0 |
+    | code | number | 状态码 | 0 |
     | msg      | string | 若失败，返回错误信息        | "The username or password is incorrect." |
 
 ## /logout
@@ -63,7 +63,7 @@
 
     | 参数名称 | 类型   | 参数说明             | 参数示例                                 |
     | -------- | ------ | -------------------- | ---------------------------------------- |
-    | code | int | 状态码 | 0 |
+    | code | number | 状态码 | 0 |
     | msg   | string | 若失败，返回错误信息 | "The username or password is incorrect." |
 
 ## /remove
@@ -84,7 +84,7 @@
 
     | 参数名称 | 类型   | 参数说明             | 参数示例                                 |
     | -------- | ------ | -------------------- | ---------------------------------------- |
-    | code | int | 状态码 | 0 |
+    | code | number | 状态码 | 0 |
     | msg   | string | 若失败，返回错误信息 | "The username or password is incorrect." |
 
 ## /user?username=
@@ -119,7 +119,7 @@
     | lastLoginTime | string | 上次登录时间 | "2022-04-04 11:49:05" |
     | description | string | 个人简介               | "My name is A1phaN."       |
     | avatar      | string   | 用户头像（base64） |                            |
-    | code | int | 状态码 | 0 |
+    | code | number | 状态码 | 0 |
     | msg      | string | 若失败，返回错误信息   | "The username is invalid." |
 
 ## /user/edit
@@ -146,7 +146,7 @@
 
     | 参数名称 | 类型   | 参数说明             | 参数示例                   |
     | -------- | ------ | -------------------- | -------------------------- |
-    | code | int | 状态码 | 0 |
+    | code | number | 状态码 | 0 |
     | msg   | string | 若失败，返回错误信息 | "The username is invalid." |
 
 ## user/reset
@@ -170,7 +170,7 @@
 
     | 参数名称 | 类型   | 参数说明             | 参数示例                      |
     | -------- | ------ | -------------------- | ----------------------------- |
-    | code | int | 状态码 | 0 |
+    | code | number | 状态码 | 0 |
     | errmsg   | string | 若失败，返回错误信息 | "The password is too simple." |
 
 ## /group
@@ -251,12 +251,23 @@
 
 类型：GET
 
+=== "请求头"
+
+    使用 GET 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
+
+=== "请求体"
+
+    | 参数名称                                | 类型     | 参数说明             | 参数示例                                       |
+    | --------------------------------------- | -------- | -------------------- | ---------------------------------------------- |
+    | username                            | string | 用户名称         |  |
+
+
 === "响应参数"
 
-| 参数名称                                | 类型     | 参数说明             | 参数示例                                       |
-| --------------------------------------- | -------- | -------------------- | ---------------------------------------------- |
-| groupList                           | Group[] | 群聊列表（每一项需要包括 groupname, groupID, 用户列表 users[]，用户每一项需要包括 username 和 avatar）         |  |
-| errmsg                                  | string   | 若失败，返回错误信息 | "Error occurred due to Internal Server Error." |
+    | 参数名称                                | 类型     | 参数说明             | 参数示例                                       |
+    | --------------------------------------- | -------- | -------------------- | ---------------------------------------------- |
+    | groupList                           | Group[] | 群聊列表（每一项需要包括 groupname, groupID, 用户列表 users[]，用户每一项需要包括 username 和 avatar）         |  |
+    | errmsg                                  | string   | 若失败，返回错误信息 | "Error occurred due to Internal Server Error." |
 
 ## /list/friend
 
@@ -270,34 +281,54 @@
 
 === "请求体"
 
-    本方法不需要提供任何请求体。
+    | 参数名称                                | 类型     | 参数说明             | 参数示例                                       |
+    | --------------------------------------- | -------- | -------------------- | ---------------------------------------------- |
+    | username                            | string | 用户名称         |  |
 
 === "响应参数"
 
     | 参数名称                                | 类型     | 参数说明             | 参数示例                                       |
     | --------------------------------------- | -------- | -------------------- | ---------------------------------------------- |
     | userList                            | User[] | 好友用户列表，每一项需要包括 username, nickname, avatar         |  |
-    | code | int | 状态码 | 0 |
+    | code | number | 状态码 | 0 |
     | msg                                  | string   | 若失败，返回错误信息 | "Error occurred due to Internal Server Error." |
 
 ## /list/request/
 
-???+ danger
-    该接口仍未完工。
+???+ warning
+    **响应参数**一栏的书写格式并不规范。
 
 场景：用于获取所有申请
 
 类型：GET
 
+=== "请求头"
+
+    使用 GET 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
+
+=== "请求体"
+
+    | 参数名称        | 类型                                   | 参数说明            | 参数示例                       |
+    | --------------- | -------------------------------------- | ------------------- | ------------------------------ |
+    | username        | string                                 | 用户名称           |      "Jimmy"                          |
+
 === "响应参数"
 
-    | 参数名称                                | 类型     | 参数说明             | 参数示例                                       |
-    | --------------------------------------- | -------- | -------------------- | ---------------------------------------------- |
-    | request_id_list                         | string[] | 请求 id 列表         | [                                              |
-    | "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee", |          |                      |                                                |
-    | "aaaaaaaa-ffff-cccc-dddd-eeeeeeeeeeee"  |          |                      |                                                |
-    | ]                                       |          |                      |                                                |
-    | errmsg                                  | string   | 若失败，返回错误信息 | "Error occurred due to Internal Server Error." |
+    | 参数名称        | 类型                                   | 参数说明            | 参数示例                       |
+    | requests | Request[] | | |
+    | code | number | 状态码 | 0 |
+    | msg                                  | string   | 若失败，返回错误信息 | "Error occurred due to Internal Server Error." |
+
+    Request[] 列表，其中每个元素包含：
+
+    | 参数名称        | 类型                                   | 参数说明            | 参数示例                       |
+    | --------------- | -------------------------------------- | ------------------- | ------------------------------ |
+    | username        | string                                 | 被申请用户名称           |      "Jimmy"                          |
+    | groupID | string | 被申请群聊 ID | "111"                    |                                |
+    | sender | string | 申请人用户名称 | "Ubec" |
+    | type            | string                                 | "group" or "friend" | "group"                        |
+    | reason         | string                                 | 申请语              | "Please let me join in!"       |
+    | status | string | "pending", "accepted" or "rejected"  | "pending" |
 
 ## /remove/friend
 
@@ -319,7 +350,7 @@
 
     | 参数名称 | 类型   | 参数说明             | 参数示例                 |
     | -------- | ------ | -------------------- | ------------------------ |
-    | code | int | 状态码 | 0 |
+    | code | number | 状态码 | 0 |
     | msg   | string | 若失败，返回错误信息 | "Such friend does not exist." |
 
 ## /remove/group
@@ -368,7 +399,7 @@
     | 参数名称                                | 类型     | 参数说明               | 参数示例                      |
     | --------------------------------------- | -------- | ---------------------- | ----------------------------- |
     | userList                            | User[] | 满足要求的用户列表，每一项需要包括 username, avatar |  |
-    | code | int | 状态码 | 0 |
+    | code | number | 状态码 | 0 |
     | msg                                  | string   | 若失败，返回错误信息   | "Such user does not exist." |
 
 ## /search/group
@@ -392,7 +423,7 @@
     | 参数名称                                | 类型     | 参数说明               | 参数示例                      |
     | --------------------------------------- | -------- | ---------------------- | ----------------------------- |
     | groupList                            | Group[] | 满足要求的群聊列表（每一项需要包括 groupID, 用户列表 users[]，用户每一项需要包括 username 和 avatar） |  |
-    | code | int | 状态码 | 0 |
+    | code | number | 状态码 | 0 |
     | msg                                  | string   | 若失败，返回错误信息   | "Such user does not exist." |
 
 
@@ -446,7 +477,7 @@
     | ----------- | ------ | ------------------------------------------------------------ | -------------------------------- |
     | requestID | string | 请求 ID | "1111" |
     | createTime | Date   | 申请发送成功时才返回创建时间，这个由数据库录入时生成再返还给前端 |                                  |
-    | code        | int | 状态码                                          |                0                 |
+    | code        | number | 状态码                                          |                0                 |
     | msg     | string |        返回信息                                               | "Application sent successfully." |
 
 ## /request/apply
@@ -464,16 +495,12 @@
     | 参数名称   | 类型   | 参数说明                                              | 参数示例                               |
     | ---------- | ------ | ----------------------------------------------------- | -------------------------------------- |
     | requestID | string | 请求 ID（当返回群组和好友申请列表的时候会需要这个属性） | "1111" |
-    | username   | string | 被申请人用户名称                                          | "LittleSeven"                         |
-    | groupID | string | 被申请群 ID | "1" |
-    | sender | string | 申请人用户名称 | "Jimmy" |
-    | type       | string | "group" or "friend"                                   | "group"                                |
 
 === "响应参数"
 
     | 参数名称 | 类型   | 参数说明          | 参数示例                          |
     | -------- | ------ | ----------------- | --------------------------------- |
-    | code     | int | 状态码 | 0                                  |
+    | code     | number | 状态码 | 0                                  |
     | msg  | string |    返回信息               | "Application apply successfully." |
 
 ## /request/reject
@@ -491,17 +518,13 @@
     | 参数名称   | 类型   | 参数说明                                              | 参数示例                               |
     | ---------- | ------ | ----------------------------------------------------- | -------------------------------------- |
     | requestID | string | 请求 ID（当返回群组和好友申请列表的时候会需要这个属性） | "1111" |
-    | username   | string | 被申请人用户名称                                          | "LittleSeven"                         |
-    | groupID | string | 被申请群 ID | "1" |
-    | sender | string | 申请人用户名称 | "Jimmy" |
-    | type       | string | "group" or "friend"                                   | "group"                                |
+    | reason | string | 拒绝理由 | "We're sorry." |
 
 === "响应参数"
 
     | 参数名称 | 类型   | 参数说明          | 参数示例                          |
     | -------- | ------ | ----------------- | --------------------------------- |
-    | reason | string | 拒绝理由 | "We're sorry." |
-    | code     | int | 状态码 |  0                                 |
+    | code     | number | 状态码 |  0                                 |
     | msg  | string |     返回信息              | "Application apply successfully." |
 
 ## /post/persistence
