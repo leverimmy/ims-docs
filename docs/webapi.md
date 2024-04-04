@@ -293,7 +293,7 @@
     | code | number | 状态码 | 0 |
     | msg                                  | string   | 若失败，返回错误信息 | "Error occurred due to Internal Server Error." |
 
-## /list/request/
+## /list/request
 
 ???+ warning
     **响应参数**一栏的书写格式并不规范。
@@ -318,9 +318,9 @@
     | requests | Request[] | | |
     | code | number | 状态码 | 0 |
     | msg                                  | string   | 若失败，返回错误信息 | "Error occurred due to Internal Server Error." |
-
+    
     Request[] 列表，其中每个元素包含：
-
+    
     | 参数名称        | 类型                                   | 参数说明            | 参数示例                       |
     | --------------- | -------------------------------------- | ------------------- | ------------------------------ |
     | username        | string                                 | 被申请用户名称           |      "Jimmy"                          |
