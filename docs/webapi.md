@@ -247,9 +247,6 @@
 
 ## /list/group
 
-???+ danger
-    该接口仍未完工。
-
 场景：用于获取群聊列表
 
 类型：GET
@@ -258,7 +255,7 @@
 
 | 参数名称                                | 类型     | 参数说明             | 参数示例                                       |
 | --------------------------------------- | -------- | -------------------- | ---------------------------------------------- |
-| group_id_list                           | string[] | 群聊 id 列表         | ["1111", "2222"] |
+| groupList                           | Group[] | 群聊列表（每一项需要包括 groupname, groupID, 用户列表 users[]，用户每一项需要包括 username 和 avatar）         |  |
 | errmsg                                  | string   | 若失败，返回错误信息 | "Error occurred due to Internal Server Error." |
 
 ## /list/friend
@@ -279,7 +276,7 @@
 
     | 参数名称                                | 类型     | 参数说明             | 参数示例                                       |
     | --------------------------------------- | -------- | -------------------- | ---------------------------------------------- |
-    | usernameList                            | string[] | 好友用户名称列表         | ["Jimmy", "LittleSeven", "Ubec"] |
+    | userList                            | User[] | 好友用户列表，每一项需要包括 username, nickname, avatar         |  |
     | code | int | 状态码 | 0 |
     | msg                                  | string   | 若失败，返回错误信息 | "Error occurred due to Internal Server Error." |
 
@@ -351,17 +348,17 @@
 
 场景：查询特定用户信息
 
-类型：POST
+类型：GET
 
 === "请求头"
 
-    使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
+    使用 GET 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
 
 === "请求体"
 
     ???+ danger
         注意这里查询的是**用户昵称**而非**用户名称**！
-
+    
     | 参数名称 | 类型   | 参数说明   | 参数示例                       |
     | -------- | ------ | ---------- | ------------------------------ |
     | nickname | string | 用户昵称   | "A1phaN"                       |
@@ -370,7 +367,7 @@
 
     | 参数名称                                | 类型     | 参数说明               | 参数示例                      |
     | --------------------------------------- | -------- | ---------------------- | ----------------------------- |
-    | userList                            | User[] | 满足要求的用户列表，每一项需要包括 username, email, avatar 三项 |  |
+    | userList                            | User[] | 满足要求的用户列表，每一项需要包括 username, avatar |  |
     | code | int | 状态码 | 0 |
     | msg                                  | string   | 若失败，返回错误信息   | "Such user does not exist." |
 
@@ -378,11 +375,11 @@
 
 场景：查询特定群聊信息
 
-类型：POST
+类型：GET
 
 === "请求头"
 
-    使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
+    使用 GET 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
 
 === "请求体"
 
@@ -406,22 +403,22 @@
 
 场景：用于获取聊天记录
 
-类型：POST
+类型：GET
 
 === "请求体"
 
-| 参数名称 | 类型   | 参数说明       | 参数示例                               |
-| -------- | ------ | -------------- | -------------------------------------- |
-| token    | string | 用户 token     | "x-abcdefghijklmnopqrstuvwxyz"         |
-| group_id | string | 对应的 id      | "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" |
-| type     | bool   | 0-群聊；1-好友 | 0                                      |
+    | 参数名称 | 类型   | 参数说明       | 参数示例                               |
+    | -------- | ------ | -------------- | -------------------------------------- |
+    | token    | string | 用户 token     | "x-abcdefghijklmnopqrstuvwxyz"         |
+    | group_id | string | 对应的 id      | "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" |
+    | type     | bool   | 0-群聊；1-好友 | 0                                      |
 
 === "响应参数"
 
-| 参数名称 | 类型     | 参数说明             | 参数示例       |
-| -------- | -------- | -------------------- | -------------- |
-| msg_list | string[] | 消息记录列表         |                |
-| errmsg   | string   | 若失败，返回错误信息 | "No such user" |
+    | 参数名称 | 类型     | 参数说明             | 参数示例       |
+    | -------- | -------- | -------------------- | -------------- |
+    | msg_list | string[] | 消息记录列表         |                |
+    | errmsg   | string   | 若失败，返回错误信息 | "No such user" |
 
 ## /request/send
 
