@@ -318,6 +318,7 @@
     | requestID | string | 请求 ID | "1111" |
     | username        | string                                 | 被申请用户名称           |      "Jimmy"                          |
     | groupID | string | 被申请群聊 ID | "111"                    |                                |
+    | groupname | string | 被申请群聊名称 | "哈哈哈群"                    |                                |
     | sender | string | 申请人用户名称 | "Ubec" |
     | type            | string                                 | "group" or "friend" | "group"                        |
     | reason         | string                                 | 申请语              | "Please let me join in!"       |
