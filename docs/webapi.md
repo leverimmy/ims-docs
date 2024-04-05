@@ -45,7 +45,7 @@
     | code | number | 状态码 | 0 |
     | msg      | string | 若失败，返回错误信息        | "The username or password is incorrect." |
 
-## /logout
+## /logout（已弃用）
 
 场景：用于用户登出
 
@@ -90,15 +90,15 @@
 ## /user?username=
 
 ???+warning
-    这里的 URL 并不需要后端操心。前端对 /user 发送 GET 请求。
+    这里的 URL 并不需要后端操心。前端对 /user 发送 POST 请求。
 
 场景：用于获取用户信息
 
-类型：GET
+类型：POST
 
 === "请求头"
 
-    使用 DELETE 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
+    使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
 
 === "请求体"
 
@@ -249,11 +249,11 @@
 
 场景：用于获取群聊列表
 
-类型：GET
+类型：POST
 
 === "请求头"
 
-    使用 GET 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
+    使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
 
 === "请求体"
 
@@ -273,11 +273,11 @@
 
 场景：用于获取好友列表
 
-类型：GET
+类型：POST
 
 === "请求头"
 
-    使用 GET 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
+    使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
 
 === "请求体"
 
@@ -300,11 +300,11 @@
 
 场景：用于获取所有申请
 
-类型：GET
+类型：POST
 
 === "请求头"
 
-    使用 GET 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
+    使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
 
 === "请求体"
 
@@ -380,11 +380,11 @@
 
 场景：查询特定用户信息
 
-类型：GET
+类型：POST
 
 === "请求头"
 
-    使用 GET 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
+    使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
 
 === "请求体"
 
@@ -407,11 +407,11 @@
 
 场景：查询特定群聊信息
 
-类型：GET
+类型：POST
 
 === "请求头"
 
-    使用 GET 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
+    使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
 
 === "请求体"
 
