@@ -36,6 +36,7 @@
     | -------- | ------ | -------- | ----------- |
     | username | string | 用户名称 | "A1phaN"    |
     | password | string | 用户密码 | "IamA1phaN" |
+    | lastLoginTime | string | 上次登录时间（实际上就是当前时间） |  |
 
 === "响应参数"
 
