@@ -36,7 +36,6 @@
     | -------- | ------ | -------- | ----------- |
     | username | string | 用户名称 | "A1phaN"    |
     | password | string | 用户密码 | "IamA1phaN" |
-    | lastLoginTime | string | 上次登录时间（实际上就是当前时间） |  |
 
 === "响应参数"
 
@@ -115,7 +114,7 @@
     | nickname    | string | 用户昵称              | "A1phaN"                   |
     | password | string | 用户密码 | "xxxx" |
     | email       | string | 邮箱                   | "deng@tsinghua.edu.cn"     |
-    | lastLoginTime | string | 上次登录时间 | "2022-04-04 11:49:05" |
+    | lastLoginTime | string | 上次登录时间 | "1970-01-01T00:00:00.000Z" |
     | description | string | 个人简介               | "My name is A1phaN."       |
     | avatar      | string   | 用户头像（base64） |                            |
     | code | number | 状态码 | 0 |
@@ -559,3 +558,26 @@
 ## /fetch/sync（未整理）
 
 ## /fetch/roam（未整理）
+
+## /check/friend
+
+场景：判断某个用户是否为当前用户的好友
+
+类型：POST
+
+=== "请求头"
+
+    使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
+
+=== "请求体"
+
+    | 参数名称   | 类型   | 参数说明                                              | 参数示例                               |
+    | ---------- | ------ | ----------------------------------------------------- | -------------------------------------- |
+    | username | string | 待判断用户名称 | "Jimmy"
+=== "响应参数"
+
+    | 参数名称 | 类型   | 参数说明          | 参数示例                          |
+    | -------- | ------ | ----------------- | --------------------------------- |
+    | result | boolean | 判断是否为好友 | true |
+    | code     | number | 状态码 |  0                                 |
+    | msg  | string |     返回信息              | "They are friends." |
