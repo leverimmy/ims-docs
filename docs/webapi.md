@@ -139,6 +139,8 @@
     | email       | string | 邮箱                   | "deng@tsinghua.edu.cn"     |
     | description | string | 个人简介               | "My name is A1phaN."       |
     | avatar      | string   | 用户头像（base64） |                            |
+    | oldPassword | string | 原密码 | "xxx" |
+    | newPassword | string | 新密码 | "yyy" |
 
 === "响应参数"
 
