@@ -223,27 +223,28 @@
     | -------- | ------ | -------------------- | --------------------- |
     | errmsg   | string | 若失败，返回错误信息 | "Invalid group name." |
 
-## /group/create（未整理）
-
-???+ danger
-    该接口仍未完工。
+## /group/create
 
 场景：用于多选好友创建群聊
 
 类型：POST
 
+=== "请求头"
+
+    使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
+
 === "请求体"
 
     | 参数名称                                | 类型     | 参数说明           | 参数示例                       |
     | --------------------------------------- | -------- | ------------------ | ------------------------------ |
-    | token                                   | string   | 用户 token         | "x-abcdefghijklmnopqrstuvwxyz" |
-    | user_id_list                            | string[] | 待加入用户 id 列表 | ["1111", "2222"] |
+    | usernameList                            | string[] | 待加入用户名称列表 | ["1111", "2222"] |
 
 === "响应参数"
 
     | 参数名称 | 类型   | 参数说明             | 参数示例           |
     | -------- | ------ | -------------------- | ------------------ |
-    | errmsg   | string | 若失败，返回错误信息 | "Too few friends." |
+    | code | number | 状态码 | 0 |
+    | msg   | string | 若失败，返回错误信息 | "Too few friends." |
 
 ## /list/group
 
