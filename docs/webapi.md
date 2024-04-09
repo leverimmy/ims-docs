@@ -285,7 +285,7 @@
 
     | 参数名称                                | 类型     | 参数说明             | 参数示例                                       |
     | --------------------------------------- | -------- | -------------------- | ---------------------------------------------- |
-    | userList                            | User[] | 好友用户列表，每一项需要包括 username, nickname, avatar         |  |
+    | userList                            | User[] | 好友用户列表，每一项需要包括 username, nickname, avatar, tag         |  |
     | code | number | 状态码 | 0 |
     | msg                                  | string   | 若失败，返回错误信息 | "Error occurred due to Internal Server Error." |
 
@@ -582,7 +582,7 @@
     | 参数名称 | 类型   | 参数说明          | 参数示例                          |
     | -------- | ------ | ----------------- | --------------------------------- |
     | result | boolean | 判断是否为好友 | true |
-    | tag | string | 对待判断用户的分组 | "Classmates" |
+    | tag | string | 对好友的分组 | "Classmates" |
     | code     | number | 状态码 |  0                                 |
     | msg  | string |     返回信息              | "They are friends." |
 
