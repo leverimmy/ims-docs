@@ -499,6 +499,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      /tag
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -831,6 +840,15 @@
   <a href="#checkfriend" class="md-nav__link">
     <span class="md-ellipsis">
       /check/friend
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      /tag
     </span>
   </a>
   
@@ -2374,6 +2392,74 @@
 <td>判断是否为好友</td>
 <td>true</td>
 </tr>
+<tr>
+<td>tag</td>
+<td>string</td>
+<td>对待判断用户的分组</td>
+<td>"Classmates"</td>
+</tr>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"They are friends."</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="tag">/tag</h2>
+<p>场景：修改当前用户对某个用户的分组</p>
+<p>类型：POST</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="25:3"><input checked="checked" id="__tabbed_25_1" name="__tabbed_25" type="radio" /><input id="__tabbed_25_2" name="__tabbed_25" type="radio" /><input id="__tabbed_25_3" name="__tabbed_25" type="radio" /><div class="tabbed-labels"><label for="__tabbed_25_1">请求头</label><label for="__tabbed_25_2">请求体</label><label for="__tabbed_25_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>好友名称</td>
+<td>"Jimmy"</td>
+</tr>
+<tr>
+<td>tag</td>
+<td>string</td>
+<td>对该用户的分组名称</td>
+<td>"Family"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>code</td>
 <td>number</td>
