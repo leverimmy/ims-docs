@@ -7,9 +7,6 @@
 类型：POST
 
 === "请求体"
-
-    ???+ warning
-        这里加了 `nickname` 字段。
     
     | 参数名称 | 类型   | 参数说明 | 参数示例    |
     | -------- | ------ | -------- | ----------- |
@@ -196,6 +193,7 @@
     | groupname                              | string   | 群聊名称             | "test_group"                                   |
     | groupAnnouncement                      | string   | 群公告               | "test_announcement"                            |
     | memberList    | string[] | 群成员用户名称列表       | ["111", "222", "333", "444"] |
+    | avatar | string | 群头像 | |
     | master | string | 群主用户名称 | "littleSeven" |
     | admins | string | 群管理员用户名称列表 | ["111", "222"] |
     | code | number | 状态码 | 0 |
@@ -214,6 +212,7 @@
     | groupID           | string | 群聊 id    | "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" |
     | groupname         | string | 群聊昵称   | "test_group"                           |
     | groupAnnouncement | string | 群公告     | "test_announcement"                    |
+    | avatar | string | 群头像 |  |
     | master | string | 群主用户名称 | "hahaha" |
     | admins | string[] | 群管理员名称列表 | ["111", "222", "31fff"] |
 
