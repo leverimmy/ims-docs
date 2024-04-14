@@ -173,36 +173,35 @@
     | code | number | 状态码 | 0 |
     | errmsg   | string | 若失败，返回错误信息 | "The password is too simple." |
 
-## /group（未整理）
-
-???+ danger
-    该接口仍未完工。
+## /group
 
 场景：用于获取群聊基本信息
 
-类型：GET
+类型：POST
 
 === "请求头"
 
-    使用 DELETE 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
+    使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
+
+=== "请求体"
+
+    | 参数名称     | 类型   | 参数说明   | 参数示例                       |
+    | ------------ | ------ | ---------- | ------------------------------ |
+    | groupID      | string   | 群聊 id              | "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"         |
 
 === "响应参数"
 
     | 参数名称                                | 类型     | 参数说明             | 参数示例                                       |
     | --------------------------------------- | -------- | -------------------- | ---------------------------------------------- |
-    | group_id                                | string   | 群聊 id              | "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"         |
-    | group_name                              | string   | 群聊名称             | "test_group"                                   |
-    | group_announcement                      | string   | 群公告               | "test_announcement"                            |
-    | user_id_list                            | string[] | 群成员 id 列表       | [                                              |
-    | "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee", |          |                      |                                                |
-    | "aaaaaaaa-ffff-cccc-dddd-eeeeeeeeeeee"  |          |                      |                                                |
-    | ]                                       |          |                      |                                                |
-    | errmsg                                  | string   | 若失败，返回错误信息 | "Error occurred due to Internal Server Error." |
+    | groupname                              | string   | 群聊名称             | "test_group"                                   |
+    | groupAnnouncement                      | string   | 群公告               | "test_announcement"                            |
+    | memberList    | string[] | 群成员用户名称列表       | ["111", "222", "333", "444"] |
+    | master | string | 群主用户名称 | "littleSeven" |
+    | admins | string | 群管理员用户名称列表 | ["111", "222"] |
+    | code | number | 状态码 | 0 |
+    | msg     | string   | 若失败，返回错误信息 | "Error occurred due to Internal Server Error." |
 
-## /group/edit（未整理）
-
-???+ danger
-    该接口仍未完工。
+## /group/edit
 
 场景：用于编辑群聊基本信息
 
@@ -212,16 +211,18 @@
 
     | 参数名称           | 类型   | 参数说明   | 参数示例                               |
     | ------------------ | ------ | ---------- | -------------------------------------- |
-    | token              | string | 用户 token | "x-abcdefghijklmnopqrstuvwxyz"         |
-    | group_id           | string | 群聊 id    | "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" |
-    | group_name         | string | 群聊名称   | "test_group"                           |
-    | group_announcement | string | 群公告     | "test_announcement"                    |
+    | groupID           | string | 群聊 id    | "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" |
+    | groupname         | string | 群聊昵称   | "test_group"                           |
+    | groupAnnouncement | string | 群公告     | "test_announcement"                    |
+    | master | string | 群主用户名称 | "hahaha" |
+    | admins | string[] | 群管理员名称列表 | ["111", "222", "31fff"] |
 
 === "响应参数"
 
     | 参数名称 | 类型   | 参数说明             | 参数示例              |
     | -------- | ------ | -------------------- | --------------------- |
-    | errmsg   | string | 若失败，返回错误信息 | "Invalid group name." |
+    | code | number | 状态码 | 0 |
+    | msg   | string | 若失败，返回错误信息 | "Invalid group name." |
 
 ## /group/create
 
@@ -350,27 +351,52 @@
     | code | number | 状态码 | 0 |
     | msg   | string | 若失败，返回错误信息 | "Such friend does not exist." |
 
-## /remove/group（未整理）
+## /remove/group
 
-???+ danger
-    该接口仍未完工。
-
-场景：退出群聊
+场景：某用户退出群聊
 
 类型：DELETE
 
+=== "请求头"
+
+    使用 DELETE 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
+
 === "请求体"
 
-| 参数名称 | 类型   | 参数说明   | 参数示例                               |
-| -------- | ------ | ---------- | -------------------------------------- |
-| token    | string | 用户 token | "x-abcdefghijklmnopqrstuvwxyz"         |
-| group_id | string | 群聊 id    | "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" |
+    | 参数名称   | 类型   | 参数说明       | 参数示例                               |
+    | ---------- | ------ | -------------- | -------------------------------------- |
+    | groupID    | string | 群聊 id        | "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" |
 
 === "响应参数"
 
-| 参数名称 | 类型   | 参数说明             | 参数示例                |
-| -------- | ------ | -------------------- | ----------------------- |
-| errmsg   | string | 若失败，返回错误信息 | "Group does not exist." |
+    | 参数名称 | 类型   | 参数说明             | 参数示例                |
+    | -------- | ------ | -------------------- | ----------------------- |
+    | code     | number | 状态码               | 0                       |
+    | msg      | string | 若失败，返回错误信息 | "Group does not exist." |
+
+## /remove/group/member
+
+场景：使某用户退出群聊
+
+类型：DELETE
+
+=== "请求头"
+
+    使用 DELETE 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
+
+=== "请求体"
+
+    | 参数名称   | 类型   | 参数说明       | 参数示例                               |
+    | ---------- | ------ | -------------- | -------------------------------------- |
+    | groupID    | string | 群聊 id        | "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" |
+    | memberName | string | 待移除用户名称 | "Jimmy"                                |
+
+=== "响应参数"
+
+    | 参数名称 | 类型   | 参数说明             | 参数示例                |
+    | -------- | ------ | -------------------- | ----------------------- |
+    | code     | number | 状态码               | 0                       |
+    | msg      | string | 若失败，返回错误信息 | "Group does not exist." |
 
 ## /search/user
 
@@ -423,6 +449,30 @@
     | code | number | 状态码 | 0 |
     | msg                                  | string   | 若失败，返回错误信息   | "Such user does not exist." |
 
+## /search/group/member
+
+场景：通过群成员昵称查询特定群聊成员用户名称
+
+类型：POST
+
+=== "请求头"
+
+    使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
+
+=== "请求体"
+
+    | 参数名称 | 类型   | 参数说明   | 参数示例                       |
+    | -------- | ------ | ---------- | ------------------------------ |
+    | groupID | string | 群聊 ID   | "111231231414155"                       |
+    | groupNickname | string | 群成员昵称 | "test111" |
+
+=== "响应参数"
+
+    | 参数名称                                | 类型     | 参数说明               | 参数示例                      |
+    | --------------------------------------- | -------- | ---------------------- | ----------------------------- |
+    | usernameList | string[] | 用户名称列表  | ["A1phaN", "Jimmy"]                       |
+    | code | number | 状态码 | 0 |
+    | msg       | string   | 若失败，返回错误信息   | "Such user does not exist." |
 
 ## /search/record（未整理）
 
