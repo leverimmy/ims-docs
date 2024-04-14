@@ -365,7 +365,8 @@
 
     | 参数名称   | 类型   | 参数说明       | 参数示例                               |
     | ---------- | ------ | -------------- | -------------------------------------- |
-    | groupID    | string | 群聊 id        | "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" |
+    | groupID    | string | 群聊 ID       | "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" |
+    | master | string | 转让群主用户名 | "next-Master" |
 
 === "响应参数"
 
