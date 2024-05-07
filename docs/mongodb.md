@@ -14,3 +14,49 @@
 - https://fastify.dev/docs/latest/Guides/Database/
 - https://www.npmjs.com/package/@fastify/mongodb
 - https://github.com/fastify/fastify-mongodb
+
+## Mongoose
+
+我们在 js 中会用到 mongoose
+
+### Schema
+在 mongoose 中，Schema 和 collection 一致
+```javascript
+import mongoose from "mongoose";
+const { Schema } = mongoose;
+const blogSchema = new Schema({
+    title:  String,
+    author: String,
+    body:   String,
+    comments: [{ body: String, data: Date }],
+    date: { type: Date, default: Date.now },
+    hidden: Boolean,
+    meta: {
+        votes: Number,
+        favs: Number
+    }
+})
+```
+### Model
+model 和 document 是一致的
+```javascript
+const Blog = mongoose.model("myBlog", blogSchema); // myBlog 是 document 的名称
+```
+
+### 增
+```
+new Blog({
+    title:  'xxx', // String is shorthand for {type: String}
+    author: 'xxx',
+    body:   'xxx',
+    comments: [],
+    date: Date.now,
+    hidden: true,
+    meta: {
+      votes: 0,
+      favs:  0
+    }
+}).save((err) => {
+    // 这是一个回调函数，处理该条数据保存之后的操作
+}); // 返回的是 Premise!
+```
