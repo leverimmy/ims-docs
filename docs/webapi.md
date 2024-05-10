@@ -115,6 +115,10 @@
 
 类型：POST
 
+=== "请求头"
+
+    使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
+
 === "请求体"
 
     | 参数名称           | 类型   | 参数说明   | 参数示例                               |
@@ -291,6 +295,10 @@
 
 类型：POST
 
+=== "请求头"
+
+    本方法不需要提供任何请求头。
+
 === "请求体"
 
     | 参数名称 | 类型   | 参数说明 | 参数示例    |
@@ -307,6 +315,9 @@
     | msg      | string | 返回信息        | "User is a ghost." |
 
 ## /logout（已弃用）
+
+???+ danger
+    该接口已被弃用。
 
 场景：用于用户登出
 
@@ -643,6 +654,10 @@
 
 类型：POST
 
+=== "请求头"
+
+    本方法不需要提供任何请求头。
+
 === "请求体"
     
     | 参数名称 | 类型   | 参数说明 | 参数示例    |
@@ -877,6 +892,9 @@
 
 ## /search/group/member（已弃用）
 
+???+ danger
+    该接口已被弃用。
+
 场景：通过群成员昵称查询特定群聊成员用户名称
 
 类型：POST
@@ -897,50 +915,6 @@
     | 参数名称                                | 类型     | 参数说明               | 参数示例                      |
     | --------------------------------------- | -------- | ---------------------- | ----------------------------- |
     | usernameList | string[] | 用户名称列表  | ["A1phaN", "Jimmy"]                       |
-    | code | number | 状态码 | 0 |
-    | msg       | string   | 若失败，返回错误信息   | "Such user does not exist." |
-
-## /search/record（已弃用）
-
-场景：用于获取聊天记录
-
-类型：POST
-
-=== "请求头"
-
-    使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
-
-
-interface RecordData {
-    recordID: string;
-    content: string;
-    groupID: string;
-    username: string;
-    sender: string;
-    type: "group" | "friend";
-}
-
-interface SearchRecordUIProps {
-    content: string;
-    startTime: string;
-    endTime: string;
-    username: string;
-}
-
-=== "请求体"
-
-    | 参数名称 | 类型   | 参数说明   | 参数示例                       |
-    | -------- | ------ | ---------- | ------------------------------ |
-    | content | string | 待搜索内容  | "111231231414155"                       |
-    | startTime | string | 起始时间 | "2024-04-28T07:57:57.275Z" |
-    | endTime | string | 结束时间 | "2024-04-28T07:57:57.275Z" |
-    | username | string | 发布信息的用户 | "sender" |
-
-=== "响应参数"
-
-    | 参数名称 | 类型     | 参数说明             | 参数示例       |
-    | -------- | -------- | -------------------- | -------------- |
-    | recordList | RecordData[] | 消息记录列表，其中每一条需要包含 recordID, content, groupID, username, sender, type  | |
     | code | number | 状态码 | 0 |
     | msg       | string   | 若失败，返回错误信息   | "Such user does not exist." |
 
