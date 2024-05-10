@@ -29,6 +29,6 @@ extra_javascript:
 nav:
   - '首页': index.md
   - 'Web API 接口': webapi.md
-  - 'React 笔记': react.md
-  - 'Fastify 笔记': fastify.md
-  - 'MongoDB 笔记': mongodb.md
+  - '用户故事': user_story.md
+  - '数据库': database.md
+  - '分工与致谢': acknowledgements.md
