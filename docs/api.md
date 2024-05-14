@@ -1,4 +1,4 @@
-# Web API 接口
+# API 接口
 
 ## /check/friend
 
@@ -25,27 +25,6 @@
     | code | number | 状态码：-1 表示错误；0 表示正常 | 0 |
     | msg  | string | 返回信息 | "They are not friends." |
 
-## /clear/database
-
-场景：删库跑路
-
-类型：DELETE
-
-=== "请求头"
-
-    使用 DELETE 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
-
-=== "请求体"
-
-    本方法不需要提供任何请求体。
-
-=== "响应参数"
-
-    | 参数名称 | 类型   | 参数说明          | 参数示例                          |
-    | -------- | ------ | ----------------- | --------------------------------- |
-    | code | number | 状态码：-1 表示错误；0 表示正常 | 0 |
-    | msg  | string | 返回信息 | "Clear database successfully." |
-
 ## /group/&lt;groupID&gt;
 
 场景：用于获取群聊基本信息
@@ -67,7 +46,7 @@
     | group | Group | 群聊基本信息 | |
     | code | number | 状态码：-1 表示错误；0 表示正常 | -1 |
     | msg     | string   | 返回信息 | "Group doesn't exist." |
-
+    
     其中，`Group` 类型包括：
     ```json
     {
@@ -135,13 +114,13 @@
 
     ???+ danger
         这里前端从来没有用过 /group/edit 的返回值。可以考虑删去。
-
+    
     | 参数名称 | 类型   | 参数说明             | 参数示例              |
     | -------- | ------ | -------------------- | --------------------- |
     | group | Group | 修改后的群聊基本信息 | |
     | code | number | 状态码：-1 表示错误；0 表示正常 | -1 |
     | msg   | string | 返回信息 | "You are not master, so you can't transfer master." |
-
+    
     其中，`Group` 类型包括：
     ```json
     {
@@ -204,10 +183,10 @@
     | userList                            | User[] | 好友用户列表         |  |
     | code | number | 状态码：-1 表示错误；0 表示正常 | 0 |
     | msg                                  | string   | 返回信息 | "Successfully fetched user friends." |
-
+    
     ???+ danger
         这里有的类型有可能是 any。需要 export 一个 interface。
-
+    
     其中，`User` 类型包括：
     ```json
     {
@@ -242,7 +221,7 @@
     | groups | GroupInfo[] | 群聊列表        |  |
     | code | number | 状态码：-1 表示错误；0 表示正常 | 0 |
     | msg | string   | 返回信息 | "Successfully fetched user groups." |
-
+    
     其中，`GroupInfo` 类型包括：
     ```json
     {
@@ -314,30 +293,6 @@
     | code | number | 状态码：-2 表示 用户已注销；-1 表示出现其他错误；0 表示正常 | -2 |
     | msg      | string | 返回信息        | "User is a ghost." |
 
-## /logout（已弃用）
-
-???+ danger
-    该接口已被弃用。
-
-    场景：用于用户登出
-
-    类型：GET
-
-    === "请求头"
-
-        使用 GET 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
-
-    === "请求体"
-
-        本方法不需要提供任何请求体。
-
-    === "响应参数"
-
-        | 参数名称 | 类型   | 参数说明             | 参数示例                                 |
-        | -------- | ------ | -------------------- | ---------------------------------------- |
-        | code | number | 状态码 | 0 |
-        | msg   | string | 若失败，返回错误信息 | "The username or password is incorrect." |
-
 ## /message
 
 场景：获取某个会话所有聊天记录
@@ -358,13 +313,13 @@
 
     ???+ danger
         这里的 msg 应修改为 `"Get full message list by convID successfully."`
-
+    
     | 参数名称 | 类型   | 参数说明          | 参数示例                          |
     | -------- | ------ | ----------------- | --------------------------------- |
     | msgList | Message[] | 聊天记录列表 | |
     | code | number | 状态码：-1 表示错误；0 表示正常 | 0 |
     | msg  | string | 返回信息 | "Get full message list by convID successfully." |
-
+    
     其中，`Message` 类型包括：
     ```json
     {
@@ -376,7 +331,7 @@
         refMessage: BriefMsg;  // 消息引用消息
     }
     ```
-
+    
     `BriefMsg` 类型是指：
     ```json
     interface BriefMsg {
@@ -407,13 +362,13 @@
 
     ???+ danger
         这里的 msg 应修改为 `"Get message list by content successfully."`
-
+    
     | 参数名称 | 类型   | 参数说明          | 参数示例                          |
     | -------- | ------ | ----------------- | --------------------------------- |
     | msgList | Message[] | 聊天记录列表 | |
     | code | number | 状态码：-1 表示错误；0 表示正常 | 0 |
     | msg  | string | 返回信息 | "Get message list by content successfully." |
-
+    
     其中，`Message` 类型包括：
     ```json
     {
@@ -425,7 +380,7 @@
         refMessage: BriefMsg;  // 消息引用消息
     }
     ```
-
+    
     `BriefMsg` 类型是指：
     ```json
     interface BriefMsg {
@@ -456,7 +411,7 @@
 
     ???+ danger
         这里后端写成了 "Delete massage successfully." 应为 message。
-
+    
     | 参数名称 | 类型   | 参数说明          | 参数示例                          |
     | -------- | ------ | ----------------- | --------------------------------- |
     | code | number | 状态码：-1 表示错误；0 表示正常 | 0 |
@@ -484,7 +439,7 @@
     | has_next | boolean | 是否还有未返回的消息 | |
     | code | number | 状态码：-1 表示错误；0 表示正常 | 0 |
     | msg  | string | 返回信息 | "Load messages successfully." |
-
+    
     其中，`Message` 类型包括：
     ```json
     {
@@ -517,14 +472,14 @@
 
     ???+ danger
         这里的 msg 应修改为 `"Get message reference count successfully."`。注意 get 的大写。
-
+    
     | 参数名称 | 类型   | 参数说明          | 参数示例                          |
     | -------- | ------ | ----------------- | --------------------------------- |
     | refCount | number | 引用数 | 10 |
     | refMessage | BriefMsg | 引用消息 | |
     | code | number | 状态码：-1 表示错误；0 表示正常 | 0 |
     | msg  | string | 返回信息 | "Get message reference count successfully." |
-
+    
     其中，`Message` 类型包括：
     ```json
     {
@@ -536,7 +491,7 @@
         refMessage: BriefMsg;  // 消息引用消息
     }
     ```
-
+    
     `BriefMsg` 类型是指：
     ```json
     interface BriefMsg {
@@ -567,13 +522,13 @@
 
     ???+ danger
         这里的 msg 应修改为 `"Get message list by sender successfully."`
-
+    
     | 参数名称 | 类型   | 参数说明          | 参数示例                          |
     | -------- | ------ | ----------------- | --------------------------------- |
     | msgList | Message[] | 聊天记录列表 | |
     | code | number | 状态码：-1 表示错误；0 表示正常 | 0 |
     | msg  | string | 返回信息 | "Get message list by sender successfully." |
-
+    
     其中，`Message` 类型包括：
     ```json
     {
@@ -585,7 +540,7 @@
         refMessage: BriefMsg;  // 消息引用消息
     }
     ```
-
+    
     `BriefMsg` 类型是指：
     ```json
     interface BriefMsg {
@@ -609,7 +564,7 @@
 
     ???+ danger
         这里后端的筛选似乎是左闭右开区间？能否调整为闭区间？
-
+    
     | 参数名称   | 类型   | 参数说明                                              | 参数示例                               |
     | ---------- | ------ | ----------------------------------------------------- | -------------------------------------- |
     | convID | string | 会话 ID | "asdfasdf" |
@@ -620,13 +575,13 @@
 
     ???+ danger
         这里的 msg 应修改为 `"Get message list by time successfully."`
-
+    
     | 参数名称 | 类型   | 参数说明          | 参数示例                          |
     | -------- | ------ | ----------------- | --------------------------------- |
     | msgList | Message[] | 聊天记录列表 | |
     | code | number | 状态码：-1 表示错误；0 表示正常 | 0 |
     | msg  | string | 返回信息 | "Get message list by time successfully." |
-
+    
     其中，`Message` 类型包括：
     ```json
     {
@@ -638,7 +593,7 @@
         refMessage: BriefMsg;  // 消息引用消息
     }
     ```
-
+    
     `BriefMsg` 类型是指：
     ```json
     interface BriefMsg {
@@ -710,7 +665,7 @@
 
     ???+ danger
         这里真的需要 master 吗？还是说，前端在退出群聊前 assert 群主不能为当前用户？
-
+    
     | 参数名称   | 类型   | 参数说明       | 参数示例                               |
     | ---------- | ------ | -------------- | -------------------------------------- |
     | groupID    | string | 群聊 ID       | "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" |
@@ -761,7 +716,7 @@
 
     ???+ danger
         前端仍然在 body 里传入了 username。后端似乎没有用到？
-
+    
     本方法不需要提供任何请求体。
 
 === "响应参数"
@@ -880,7 +835,7 @@
     | groupList | Group[] | 满足要求的群聊列表 |  |
     | code | number | 状态码：-1 表示错误；0 表示正常 | 0 |
     | msg | string   | 返回信息   | "Get group lists successfully." |
-
+    
     其中，`Group` 类型包括：
     ```json
     {
@@ -896,22 +851,22 @@
     该接口已被弃用。
 
     场景：通过群成员昵称查询特定群聊成员用户名称
-
+    
     类型：POST
-
+    
     === "请求头"
-
+    
         使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
-
+    
     === "请求体"
-
+    
         | 参数名称 | 类型   | 参数说明   | 参数示例                       |
         | -------- | ------ | ---------- | ------------------------------ |
         | groupID | string | 群聊 ID   | "111231231414155"                       |
         | groupNickname | string | 群成员昵称 | "test111" |
-
+    
     === "响应参数"
-
+    
         | 参数名称                                | 类型     | 参数说明               | 参数示例                      |
         | --------------------------------------- | -------- | ---------------------- | ----------------------------- |
         | usernameList | string[] | 用户名称列表  | ["A1phaN", "Jimmy"]                       |
@@ -941,7 +896,7 @@
     | userList | User[] | 满足要求的用户列表 |  |
     | code | number | 状态码：-1 表示错误；0 表示正常 | 0 |
     | msg | string   | 返回信息   | "Friend found." |
-
+    
     其中，`User` 类型包括：
     ```json
     {
@@ -996,7 +951,7 @@
     | user | User | 用户信息 | |
     | code | number | 状态码：-1 表示错误；0 表示正常 | 0 |
     | msg | string | 返回信息 | "Successfully fetched user info." |
-
+    
     其中，`User` 类型包括：
     ```json
     {
@@ -1049,23 +1004,23 @@
     该接口已被弃用。
 
     场景：用于重置密码
-
+    
     类型：POST
-
+    
     === "请求头"
-
+    
         使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。
-
+    
     === "请求体"
-
+    
         | 参数名称     | 类型   | 参数说明   | 参数示例                       |
         | ------------ | ------ | ---------- | ------------------------------ |
         | token        | string | 用户 token | "x-abcdefghijklmnopqrstuvwxyz" |
         | old_password | string | 旧密码     | "IamA1phaN"                    |
         | new_password | string | 新密码     | "Iama1phan"                    |
-
+    
     === "响应参数"
-
+    
         | 参数名称 | 类型   | 参数说明             | 参数示例                      |
         | -------- | ------ | -------------------- | ----------------------------- |
         | code | number | 状态码 | 0 |

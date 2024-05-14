@@ -28,7 +28,11 @@ extra_javascript:
 
 nav:
   - '首页': index.md
-  - 'Web API 接口': webapi.md
-  - '用户故事': user_story.md
+  - '需求分析':
+    - '用户故事': user_story.md
+    - '工作流程': workflow.md
+  - '模块和 API':
+    - '模块': module.md
+    - 'API 接口': api.md
   - '数据库': database.md
   - '分工与致谢': acknowledgements.md
