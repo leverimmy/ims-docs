@@ -1,0 +1,3352 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../module/">
+      
+      
+        <link rel="next" href="../database/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
+    
+    
+      
+        <title>API 接口 - ims-docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.fad675c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ims-docs" class="md-header__button md-logo" aria-label="ims-docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ims-docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API 接口
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ims-docs" class="md-nav__button md-logo" aria-label="ims-docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ims-docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    需求分析
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            需求分析
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user_story/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    用户故事
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    工作流程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    模块和 API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            模块和 API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    模块
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    API 接口
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    API 接口
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#checkfriend" class="md-nav__link">
+    <span class="md-ellipsis">
+      /check/friend
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groupgroupid" class="md-nav__link">
+    <span class="md-ellipsis">
+      /group/&lt;groupID&gt;
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groupcreate" class="md-nav__link">
+    <span class="md-ellipsis">
+      /group/create
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groupedit" class="md-nav__link">
+    <span class="md-ellipsis">
+      /group/edit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listconversation" class="md-nav__link">
+    <span class="md-ellipsis">
+      /list/conversation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listfriend" class="md-nav__link">
+    <span class="md-ellipsis">
+      /list/friend
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listgroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      /list/group
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listrequest" class="md-nav__link">
+    <span class="md-ellipsis">
+      /list/request
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#login" class="md-nav__link">
+    <span class="md-ellipsis">
+      /login
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message" class="md-nav__link">
+    <span class="md-ellipsis">
+      /message
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#messagecontent" class="md-nav__link">
+    <span class="md-ellipsis">
+      /message/content
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#messagedelete" class="md-nav__link">
+    <span class="md-ellipsis">
+      /message/delete
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#messagegetconversationidafterlimit" class="md-nav__link">
+    <span class="md-ellipsis">
+      /message/get?conversationID=&amp;after=&amp;limit=
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#messagerefer" class="md-nav__link">
+    <span class="md-ellipsis">
+      /message/refer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#messagesender" class="md-nav__link">
+    <span class="md-ellipsis">
+      /message/sender
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#messagetime" class="md-nav__link">
+    <span class="md-ellipsis">
+      /message/time
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#register" class="md-nav__link">
+    <span class="md-ellipsis">
+      /register
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removefriend" class="md-nav__link">
+    <span class="md-ellipsis">
+      /remove/friend
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removegroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      /remove/group
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removegroupmember" class="md-nav__link">
+    <span class="md-ellipsis">
+      /remove/group/member
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removeuser" class="md-nav__link">
+    <span class="md-ellipsis">
+      /remove/user
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requestaccept" class="md-nav__link">
+    <span class="md-ellipsis">
+      /request/accept
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requestreject" class="md-nav__link">
+    <span class="md-ellipsis">
+      /request/reject
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requestsend" class="md-nav__link">
+    <span class="md-ellipsis">
+      /request/send
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#searchgroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      /search/group
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#searchgroupmember" class="md-nav__link">
+    <span class="md-ellipsis">
+      /search/group/member（已弃用）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#searchuser" class="md-nav__link">
+    <span class="md-ellipsis">
+      /search/user
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      /tag
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#userusername" class="md-nav__link">
+    <span class="md-ellipsis">
+      /user/&lt;username&gt;
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useredit" class="md-nav__link">
+    <span class="md-ellipsis">
+      /user/edit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#userreset" class="md-nav__link">
+    <span class="md-ellipsis">
+      /user/reset（已弃用）
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据库
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../acknowledgements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    分工与致谢
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#checkfriend" class="md-nav__link">
+    <span class="md-ellipsis">
+      /check/friend
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groupgroupid" class="md-nav__link">
+    <span class="md-ellipsis">
+      /group/&lt;groupID&gt;
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groupcreate" class="md-nav__link">
+    <span class="md-ellipsis">
+      /group/create
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groupedit" class="md-nav__link">
+    <span class="md-ellipsis">
+      /group/edit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listconversation" class="md-nav__link">
+    <span class="md-ellipsis">
+      /list/conversation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listfriend" class="md-nav__link">
+    <span class="md-ellipsis">
+      /list/friend
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listgroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      /list/group
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listrequest" class="md-nav__link">
+    <span class="md-ellipsis">
+      /list/request
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#login" class="md-nav__link">
+    <span class="md-ellipsis">
+      /login
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message" class="md-nav__link">
+    <span class="md-ellipsis">
+      /message
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#messagecontent" class="md-nav__link">
+    <span class="md-ellipsis">
+      /message/content
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#messagedelete" class="md-nav__link">
+    <span class="md-ellipsis">
+      /message/delete
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#messagegetconversationidafterlimit" class="md-nav__link">
+    <span class="md-ellipsis">
+      /message/get?conversationID=&amp;after=&amp;limit=
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#messagerefer" class="md-nav__link">
+    <span class="md-ellipsis">
+      /message/refer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#messagesender" class="md-nav__link">
+    <span class="md-ellipsis">
+      /message/sender
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#messagetime" class="md-nav__link">
+    <span class="md-ellipsis">
+      /message/time
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#register" class="md-nav__link">
+    <span class="md-ellipsis">
+      /register
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removefriend" class="md-nav__link">
+    <span class="md-ellipsis">
+      /remove/friend
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removegroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      /remove/group
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removegroupmember" class="md-nav__link">
+    <span class="md-ellipsis">
+      /remove/group/member
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removeuser" class="md-nav__link">
+    <span class="md-ellipsis">
+      /remove/user
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requestaccept" class="md-nav__link">
+    <span class="md-ellipsis">
+      /request/accept
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requestreject" class="md-nav__link">
+    <span class="md-ellipsis">
+      /request/reject
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requestsend" class="md-nav__link">
+    <span class="md-ellipsis">
+      /request/send
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#searchgroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      /search/group
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#searchgroupmember" class="md-nav__link">
+    <span class="md-ellipsis">
+      /search/group/member（已弃用）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#searchuser" class="md-nav__link">
+    <span class="md-ellipsis">
+      /search/user
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      /tag
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#userusername" class="md-nav__link">
+    <span class="md-ellipsis">
+      /user/&lt;username&gt;
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useredit" class="md-nav__link">
+    <span class="md-ellipsis">
+      /user/edit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#userreset" class="md-nav__link">
+    <span class="md-ellipsis">
+      /user/reset（已弃用）
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="api">API 接口</h1>
+<h2 id="checkfriend">/check/friend</h2>
+<p>场景：判断某个用户是否为当前用户的好友</p>
+<p>类型：POST</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">请求头</label><label for="__tabbed_1_2">请求体</label><label for="__tabbed_1_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>待判断用户名称</td>
+<td>"Jimmy"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td>boolean</td>
+<td>判断是否为好友</td>
+<td>true</td>
+</tr>
+<tr>
+<td>tag</td>
+<td>string</td>
+<td>对好友的分组</td>
+<td>"Classmates"</td>
+</tr>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"They are not friends."</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="groupgroupid">/group/&lt;groupID&gt;</h2>
+<p>场景：用于获取群聊基本信息</p>
+<p>类型：GET</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">请求头</label><label for="__tabbed_2_2">请求体</label><label for="__tabbed_2_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 GET 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<p>本方法不需要提供任何请求体。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>group</td>
+<td>Group</td>
+<td>群聊基本信息</td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"Group doesn't exist."</td>
+</tr>
+</tbody>
+</table>
+<p>其中，<code>Group</code> 类型包括：
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="err">groupID</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 群聊 ID</span>
+<span class="w">    </span><span class="err">group</span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 群聊名称</span>
+<span class="w">    </span><span class="err">mas</span><span class="kc">ter</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 群主用户名称</span>
+<span class="w">    </span><span class="err">admi</span><span class="kc">ns</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g</span><span class="p">[]</span><span class="err">;</span><span class="w"> </span><span class="c1">// 管理员用户名称列表</span>
+<span class="w">    </span><span class="err">ava</span><span class="kc">tar</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 群头像</span>
+<span class="w">    </span><span class="err">crea</span><span class="kc">te</span><span class="err">Time</span><span class="p">:</span><span class="w"> </span><span class="err">Da</span><span class="kc">te</span><span class="err">;</span><span class="w"> </span><span class="c1">// 建群时间</span>
+<span class="w">    </span><span class="err">i</span><span class="kc">n</span><span class="err">vi</span><span class="kc">te</span><span class="err">_check</span><span class="p">:</span><span class="w"> </span><span class="err">boolea</span><span class="kc">n</span><span class="err">;</span><span class="w"> </span><span class="c1">// 邀请是否需要审核（默认为 true ）</span>
+<span class="w">    </span><span class="err">a</span><span class="kc">nn</span><span class="err">ou</span><span class="kc">n</span><span class="err">ceme</span><span class="kc">nt</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 群公告</span>
+<span class="w">    </span><span class="err">memberLis</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g</span><span class="p">[]</span><span class="err">;</span><span class="w"> </span><span class="c1">// 群成员用户名称列表</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<h2 id="groupcreate">/group/create</h2>
+<p>场景：用于多选好友创建群聊</p>
+<p>类型：POST</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">请求头</label><label for="__tabbed_3_2">请求体</label><label for="__tabbed_3_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>usernameList</td>
+<td>string[]</td>
+<td>待加入用户名称列表</td>
+<td>["1111", "2222"]</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groupID</td>
+<td>string</td>
+<td>群聊 ID</td>
+<td>"111111111"</td>
+</tr>
+<tr>
+<td>groupname</td>
+<td>string</td>
+<td>群聊名称</td>
+<td>"Group of aaa"</td>
+</tr>
+<tr>
+<td>avatar</td>
+<td>string</td>
+<td>群聊头像</td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"You must choose at least one group member."</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="groupedit">/group/edit</h2>
+<p>场景：用于编辑群聊基本信息</p>
+<p>类型：POST</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">请求头</label><label for="__tabbed_4_2">请求体</label><label for="__tabbed_4_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groupID</td>
+<td>string</td>
+<td>群聊 ID</td>
+<td>"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"</td>
+</tr>
+<tr>
+<td>groupname</td>
+<td>string</td>
+<td>群聊昵称</td>
+<td>"test_group"</td>
+</tr>
+<tr>
+<td>announcement</td>
+<td>string</td>
+<td>群公告</td>
+<td>"test_announcement"</td>
+</tr>
+<tr>
+<td>avatar</td>
+<td>string</td>
+<td>群头像</td>
+<td></td>
+</tr>
+<tr>
+<td>invite_check</td>
+<td>boolean</td>
+<td>邀请是否需要审核</td>
+<td>false</td>
+</tr>
+<tr>
+<td>master</td>
+<td>string</td>
+<td>群主用户名称</td>
+<td>"hahaha"</td>
+</tr>
+<tr>
+<td>admins</td>
+<td>string[]</td>
+<td>群管理员名称列表</td>
+<td>["111", "222", "31fff"]</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<details class="danger" open="open">
+<summary>Danger</summary>
+<p>这里前端从来没有用过 /group/edit 的返回值。可以考虑删去。</p>
+</details>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>group</td>
+<td>Group</td>
+<td>修改后的群聊基本信息</td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"You are not master, so you can't transfer master."</td>
+</tr>
+</tbody>
+</table>
+<p>其中，<code>Group</code> 类型包括：
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="err">groupID</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 群聊 ID</span>
+<span class="w">    </span><span class="err">group</span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 群聊名称</span>
+<span class="w">    </span><span class="err">mas</span><span class="kc">ter</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 群主用户名称</span>
+<span class="w">    </span><span class="err">admi</span><span class="kc">ns</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g</span><span class="p">[]</span><span class="err">;</span><span class="w"> </span><span class="c1">// 管理员用户名称列表</span>
+<span class="w">    </span><span class="err">ava</span><span class="kc">tar</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 群头像</span>
+<span class="w">    </span><span class="err">crea</span><span class="kc">te</span><span class="err">Time</span><span class="p">:</span><span class="w"> </span><span class="err">Da</span><span class="kc">te</span><span class="err">;</span><span class="w"> </span><span class="c1">// 建群时间</span>
+<span class="w">    </span><span class="err">i</span><span class="kc">n</span><span class="err">vi</span><span class="kc">te</span><span class="err">_check</span><span class="p">:</span><span class="w"> </span><span class="err">boolea</span><span class="kc">n</span><span class="err">;</span><span class="w"> </span><span class="c1">// 邀请是否需要审核（默认为 true ）</span>
+<span class="w">    </span><span class="err">a</span><span class="kc">nn</span><span class="err">ou</span><span class="kc">n</span><span class="err">ceme</span><span class="kc">nt</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 群公告</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<h2 id="listconversation">/list/conversation</h2>
+<details class="danger" open="open">
+<summary>Danger</summary>
+<p>msg 需要打句号.。且不需要返回 username。</p>
+</details>
+<p>场景：用于获取当前用户参与所有会话的 ID</p>
+<p>类型：GET</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">请求头</label><label for="__tabbed_5_2">请求体</label><label for="__tabbed_5_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 GET 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<p>本方法不需要提供任何请求体。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>conversationIDs</td>
+<td>string[]</td>
+<td>会话 ID 列表</td>
+<td></td>
+</tr>
+<tr>
+<td>avatars</td>
+<td>string[]</td>
+<td>会话头像列表</td>
+<td></td>
+</tr>
+<tr>
+<td>lastLoginTime</td>
+<td>Date</td>
+<td>用户上次登录时间</td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"Get conversation ids successfully."</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="listfriend">/list/friend</h2>
+<p>场景：用于获取好友列表</p>
+<p>类型：GET</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">请求头</label><label for="__tabbed_6_2">请求体</label><label for="__tabbed_6_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 GET 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<p>本方法不需要提供任何请求体。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userList</td>
+<td>User[]</td>
+<td>好友用户列表</td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"Successfully fetched user friends."</td>
+</tr>
+</tbody>
+</table>
+<details class="danger" open="open">
+<summary>Danger</summary>
+<p>这里有的类型有可能是 any。需要 export 一个 interface。</p>
+</details>
+<p>其中，<code>User</code> 类型包括：
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="err">user</span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 用户名称</span>
+<span class="w">    </span><span class="kc">n</span><span class="err">ick</span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 用户昵称</span>
+<span class="w">    </span><span class="err">ava</span><span class="kc">tar</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 用户头像</span>
+<span class="w">    </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 用户 ID</span>
+<span class="w">    </span><span class="kc">ta</span><span class="err">g</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 好友标签</span>
+<span class="w">    </span><span class="err">cursor</span><span class="p">:</span><span class="w"> </span><span class="err">Da</span><span class="kc">te</span><span class="err">;</span><span class="w"> </span><span class="c1">// 用户最近查看时间</span>
+<span class="w">    </span><span class="kc">fr</span><span class="err">ie</span><span class="kc">n</span><span class="err">dCursor</span><span class="p">:</span><span class="w"> </span><span class="err">Da</span><span class="kc">te</span><span class="err">;</span><span class="w"> </span><span class="c1">// 好友最近查看时间</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<h2 id="listgroup">/list/group</h2>
+<p>场景：用于获取群聊列表</p>
+<p>类型：GET</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">请求头</label><label for="__tabbed_7_2">请求体</label><label for="__tabbed_7_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 GET 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<p>本方法不需要提供任何请求体。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groups</td>
+<td>GroupInfo[]</td>
+<td>群聊列表</td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"Successfully fetched user groups."</td>
+</tr>
+</tbody>
+</table>
+<p>其中，<code>GroupInfo</code> 类型包括：
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="err">groupID</span><span class="p">:</span><span class="w"> </span><span class="err">Objec</span><span class="kc">t</span><span class="err">Id;</span><span class="w"> </span><span class="c1">// 群聊 ID</span>
+<span class="w">    </span><span class="err">group</span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 群聊名称</span>
+<span class="w">    </span><span class="err">ava</span><span class="kc">tar</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 群聊头像</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<h2 id="listrequest">/list/request</h2>
+<p>场景：用于获取所有申请</p>
+<p>类型：GET</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">请求头</label><label for="__tabbed_8_2">请求体</label><label for="__tabbed_8_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 GET 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<p>本方法不需要提供任何请求体。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>requests</td>
+<td>RequestData[]</td>
+<td>由所有申请组成的列表</td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"Successfully fetched user requests."</td>
+</tr>
+</tbody>
+</table>
+<p>其中，<code>RequestData</code> 类型包括：
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="err">reques</span><span class="kc">t</span><span class="err">ID</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 申请信息 ID</span>
+<span class="w">    </span><span class="err">user</span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// （好友申请）接收者</span>
+<span class="w">    </span><span class="err">groupID</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// （群聊申请）群 ID</span>
+<span class="w">    </span><span class="err">group</span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// （群聊申请）群名称</span>
+<span class="w">    </span><span class="err">se</span><span class="kc">n</span><span class="err">der</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 申请发送者</span>
+<span class="w">    </span><span class="kc">t</span><span class="err">ype</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 申请类型（&quot;group&quot; or &quot;friend&quot;）</span>
+<span class="w">    </span><span class="err">reaso</span><span class="kc">n</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 申请语（&quot;pending&quot; or &quot;accepted&quot; 状态）/ 拒绝原因（&quot;rejected&quot; 状态）</span>
+<span class="w">    </span><span class="err">s</span><span class="kc">tatus</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 申请状态（&quot;pending&quot; or &quot;accepted&quot; or &quot;rejected&quot;）</span>
+<span class="w">    </span><span class="err">crea</span><span class="kc">te</span><span class="err">Time</span><span class="p">:</span><span class="w"> </span><span class="err">Da</span><span class="kc">te</span><span class="err">;</span><span class="w"> </span><span class="c1">// 申请时间</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<h2 id="login">/login</h2>
+<p>场景：用于用户登录</p>
+<p>类型：POST</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">请求头</label><label for="__tabbed_9_2">请求体</label><label for="__tabbed_9_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>本方法不需要提供任何请求头。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>用户名称</td>
+<td>"A1phaN"</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>用户密码</td>
+<td>"IamA1phaN"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>若成功，返回⽤户 token</td>
+<td>"x-abcdefghijklmnopqrstuvwxyz"</td>
+</tr>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-2 表示 用户已注销；-1 表示出现其他错误；0 表示正常</td>
+<td>-2</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"User is a ghost."</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="message">/message</h2>
+<p>场景：获取某个会话所有聊天记录</p>
+<p>类型：POST</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">请求头</label><label for="__tabbed_10_2">请求体</label><label for="__tabbed_10_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>convID</td>
+<td>string</td>
+<td>会话 ID</td>
+<td>"asdfasdf"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<details class="danger" open="open">
+<summary>Danger</summary>
+<p>这里的 msg 应修改为 <code>"Get full message list by convID successfully."</code></p>
+</details>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>msgList</td>
+<td>Message[]</td>
+<td>聊天记录列表</td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"Get full message list by convID successfully."</td>
+</tr>
+</tbody>
+</table>
+<p>其中，<code>Message</code> 类型包括：
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="err">_id</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 消息 ID</span>
+<span class="w">    </span><span class="err">co</span><span class="kc">ntent</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w">       </span><span class="c1">// 消息内容</span>
+<span class="w">    </span><span class="err">se</span><span class="kc">n</span><span class="err">der</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w">        </span><span class="c1">// 发送者用户名</span>
+<span class="w">    </span><span class="err">crea</span><span class="kc">te</span><span class="err">Time</span><span class="p">:</span><span class="w"> </span><span class="err">Da</span><span class="kc">te</span><span class="err">;</span><span class="w">      </span><span class="c1">// 消息创建时间</span>
+<span class="w">    </span><span class="err">re</span><span class="kc">f</span><span class="err">Cou</span><span class="kc">nt</span><span class="p">:</span><span class="w"> </span><span class="kc">nu</span><span class="err">mber;</span><span class="w">      </span><span class="c1">// 消息引用次数</span>
+<span class="w">    </span><span class="err">re</span><span class="kc">f</span><span class="err">Message</span><span class="p">:</span><span class="w"> </span><span class="err">Brie</span><span class="kc">f</span><span class="err">Msg;</span><span class="w">  </span><span class="c1">// 消息引用消息</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><code>BriefMsg</code> 类型是指：
+<div class="highlight"><pre><span></span><code><span class="err">i</span><span class="kc">nterfa</span><span class="err">ce</span><span class="w"> </span><span class="err">Brie</span><span class="kc">f</span><span class="err">Msg</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="err">msgID</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 消息 ID</span>
+<span class="w">    </span><span class="err">co</span><span class="kc">ntent</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 消息内容</span>
+<span class="w">    </span><span class="err">se</span><span class="kc">n</span><span class="err">der</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 发送者用户名</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<h2 id="messagecontent">/message/content</h2>
+<p>场景：获取某个会话中特定内容的聊天记录</p>
+<p>类型：POST</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">请求头</label><label for="__tabbed_11_2">请求体</label><label for="__tabbed_11_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>convID</td>
+<td>string</td>
+<td>会话 ID</td>
+<td>"asdfasdf"</td>
+</tr>
+<tr>
+<td>content</td>
+<td>string</td>
+<td>特定内容</td>
+<td>"aaaa"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<details class="danger" open="open">
+<summary>Danger</summary>
+<p>这里的 msg 应修改为 <code>"Get message list by content successfully."</code></p>
+</details>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>msgList</td>
+<td>Message[]</td>
+<td>聊天记录列表</td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"Get message list by content successfully."</td>
+</tr>
+</tbody>
+</table>
+<p>其中，<code>Message</code> 类型包括：
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="err">_id</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 消息 ID</span>
+<span class="w">    </span><span class="err">co</span><span class="kc">ntent</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w">       </span><span class="c1">// 消息内容</span>
+<span class="w">    </span><span class="err">se</span><span class="kc">n</span><span class="err">der</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w">        </span><span class="c1">// 发送者用户名</span>
+<span class="w">    </span><span class="err">crea</span><span class="kc">te</span><span class="err">Time</span><span class="p">:</span><span class="w"> </span><span class="err">Da</span><span class="kc">te</span><span class="err">;</span><span class="w">      </span><span class="c1">// 消息创建时间</span>
+<span class="w">    </span><span class="err">re</span><span class="kc">f</span><span class="err">Cou</span><span class="kc">nt</span><span class="p">:</span><span class="w"> </span><span class="kc">nu</span><span class="err">mber;</span><span class="w">      </span><span class="c1">// 消息引用次数</span>
+<span class="w">    </span><span class="err">re</span><span class="kc">f</span><span class="err">Message</span><span class="p">:</span><span class="w"> </span><span class="err">Brie</span><span class="kc">f</span><span class="err">Msg;</span><span class="w">  </span><span class="c1">// 消息引用消息</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><code>BriefMsg</code> 类型是指：
+<div class="highlight"><pre><span></span><code><span class="err">i</span><span class="kc">nterfa</span><span class="err">ce</span><span class="w"> </span><span class="err">Brie</span><span class="kc">f</span><span class="err">Msg</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="err">msgID</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 消息 ID</span>
+<span class="w">    </span><span class="err">co</span><span class="kc">ntent</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 消息内容</span>
+<span class="w">    </span><span class="err">se</span><span class="kc">n</span><span class="err">der</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 发送者用户名</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<h2 id="messagedelete">/message/delete</h2>
+<p>场景：对当前用户，删除（不展示）某个会话中特定的聊天记录</p>
+<p>类型：DELETE</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:3"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">请求头</label><label for="__tabbed_12_2">请求体</label><label for="__tabbed_12_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 DELETE 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>convID</td>
+<td>string</td>
+<td>会话 ID</td>
+<td>"asdfasdf"</td>
+</tr>
+<tr>
+<td>msgID</td>
+<td>string</td>
+<td>聊天记录 ID</td>
+<td>"aaaa"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<details class="danger" open="open">
+<summary>Danger</summary>
+<p>这里后端写成了 "Delete massage successfully." 应为 message。</p>
+</details>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"Delete message successfully."</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="messagegetconversationidafterlimit">/message/get?conversationID=&amp;after=&amp;limit=</h2>
+<p>场景：获取消息列表</p>
+<p>类型：GET</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:3"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><input id="__tabbed_13_3" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">请求头</label><label for="__tabbed_13_2">请求体</label><label for="__tabbed_13_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 GET 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<p>本方法不需要提供任何请求体。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>messages</td>
+<td>Message[]</td>
+<td>聊天记录列表</td>
+<td></td>
+</tr>
+<tr>
+<td>has_next</td>
+<td>boolean</td>
+<td>是否还有未返回的消息</td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"Load messages successfully."</td>
+</tr>
+</tbody>
+</table>
+<p>其中，<code>Message</code> 类型包括：
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="err">co</span><span class="kc">n</span><span class="err">versa</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 会话 ID</span>
+<span class="w">    </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 消息 ID</span>
+<span class="w">    </span><span class="err">co</span><span class="kc">ntent</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 消息内容</span>
+<span class="w">    </span><span class="err">se</span><span class="kc">n</span><span class="err">der</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 发送者用户名称</span>
+<span class="w">    </span><span class="err">crea</span><span class="kc">te</span><span class="err">Time</span><span class="p">:</span><span class="w"> </span><span class="err">Da</span><span class="kc">te</span><span class="err">;</span><span class="w"> </span><span class="c1">// 发送时间</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<h2 id="messagerefer">/message/refer</h2>
+<p>场景：获取指定会话的某条信息引用数</p>
+<p>类型：POST</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:3"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><input id="__tabbed_14_3" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">请求头</label><label for="__tabbed_14_2">请求体</label><label for="__tabbed_14_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>convID</td>
+<td>string</td>
+<td>会话 ID</td>
+<td>"asdfasdf"</td>
+</tr>
+<tr>
+<td>msgID</td>
+<td>string</td>
+<td>消息 ID</td>
+<td>"aaaa"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<details class="danger" open="open">
+<summary>Danger</summary>
+<p>这里的 msg 应修改为 <code>"Get message reference count successfully."</code>。注意 get 的大写。</p>
+</details>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>refCount</td>
+<td>number</td>
+<td>引用数</td>
+<td>10</td>
+</tr>
+<tr>
+<td>refMessage</td>
+<td>BriefMsg</td>
+<td>引用消息</td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"Get message reference count successfully."</td>
+</tr>
+</tbody>
+</table>
+<p>其中，<code>Message</code> 类型包括：
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="err">_id</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 消息 ID</span>
+<span class="w">    </span><span class="err">co</span><span class="kc">ntent</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w">       </span><span class="c1">// 消息内容</span>
+<span class="w">    </span><span class="err">se</span><span class="kc">n</span><span class="err">der</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w">        </span><span class="c1">// 发送者用户名</span>
+<span class="w">    </span><span class="err">crea</span><span class="kc">te</span><span class="err">Time</span><span class="p">:</span><span class="w"> </span><span class="err">Da</span><span class="kc">te</span><span class="err">;</span><span class="w">      </span><span class="c1">// 消息创建时间</span>
+<span class="w">    </span><span class="err">re</span><span class="kc">f</span><span class="err">Cou</span><span class="kc">nt</span><span class="p">:</span><span class="w"> </span><span class="kc">nu</span><span class="err">mber;</span><span class="w">      </span><span class="c1">// 消息引用次数</span>
+<span class="w">    </span><span class="err">re</span><span class="kc">f</span><span class="err">Message</span><span class="p">:</span><span class="w"> </span><span class="err">Brie</span><span class="kc">f</span><span class="err">Msg;</span><span class="w">  </span><span class="c1">// 消息引用消息</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><code>BriefMsg</code> 类型是指：
+<div class="highlight"><pre><span></span><code><span class="err">i</span><span class="kc">nterfa</span><span class="err">ce</span><span class="w"> </span><span class="err">Brie</span><span class="kc">f</span><span class="err">Msg</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="err">msgID</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 消息 ID</span>
+<span class="w">    </span><span class="err">co</span><span class="kc">ntent</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 消息内容</span>
+<span class="w">    </span><span class="err">se</span><span class="kc">n</span><span class="err">der</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 发送者用户名</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<h2 id="messagesender">/message/sender</h2>
+<p>场景：获取某个会话由某个用户发送的聊天记录</p>
+<p>类型：POST</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="15:3"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><input id="__tabbed_15_2" name="__tabbed_15" type="radio" /><input id="__tabbed_15_3" name="__tabbed_15" type="radio" /><div class="tabbed-labels"><label for="__tabbed_15_1">请求头</label><label for="__tabbed_15_2">请求体</label><label for="__tabbed_15_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>convID</td>
+<td>string</td>
+<td>会话 ID</td>
+<td>"asdfasdf"</td>
+</tr>
+<tr>
+<td>sender</td>
+<td>string</td>
+<td>发送者用户名</td>
+<td>"Jimmy"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<details class="danger" open="open">
+<summary>Danger</summary>
+<p>这里的 msg 应修改为 <code>"Get message list by sender successfully."</code></p>
+</details>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>msgList</td>
+<td>Message[]</td>
+<td>聊天记录列表</td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"Get message list by sender successfully."</td>
+</tr>
+</tbody>
+</table>
+<p>其中，<code>Message</code> 类型包括：
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="err">_id</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 消息 ID</span>
+<span class="w">    </span><span class="err">co</span><span class="kc">ntent</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w">       </span><span class="c1">// 消息内容</span>
+<span class="w">    </span><span class="err">se</span><span class="kc">n</span><span class="err">der</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w">        </span><span class="c1">// 发送者用户名</span>
+<span class="w">    </span><span class="err">crea</span><span class="kc">te</span><span class="err">Time</span><span class="p">:</span><span class="w"> </span><span class="err">Da</span><span class="kc">te</span><span class="err">;</span><span class="w">      </span><span class="c1">// 消息创建时间</span>
+<span class="w">    </span><span class="err">re</span><span class="kc">f</span><span class="err">Cou</span><span class="kc">nt</span><span class="p">:</span><span class="w"> </span><span class="kc">nu</span><span class="err">mber;</span><span class="w">      </span><span class="c1">// 消息引用次数</span>
+<span class="w">    </span><span class="err">re</span><span class="kc">f</span><span class="err">Message</span><span class="p">:</span><span class="w"> </span><span class="err">Brie</span><span class="kc">f</span><span class="err">Msg;</span><span class="w">  </span><span class="c1">// 消息引用消息</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><code>BriefMsg</code> 类型是指：
+<div class="highlight"><pre><span></span><code><span class="err">i</span><span class="kc">nterfa</span><span class="err">ce</span><span class="w"> </span><span class="err">Brie</span><span class="kc">f</span><span class="err">Msg</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="err">msgID</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 消息 ID</span>
+<span class="w">    </span><span class="err">co</span><span class="kc">ntent</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 消息内容</span>
+<span class="w">    </span><span class="err">se</span><span class="kc">n</span><span class="err">der</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 发送者用户名</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<h2 id="messagetime">/message/time</h2>
+<p>场景：获取某个会话在某个时间段的聊天记录</p>
+<p>类型：POST</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="16:3"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio" /><input id="__tabbed_16_2" name="__tabbed_16" type="radio" /><input id="__tabbed_16_3" name="__tabbed_16" type="radio" /><div class="tabbed-labels"><label for="__tabbed_16_1">请求头</label><label for="__tabbed_16_2">请求体</label><label for="__tabbed_16_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<details class="danger" open="open">
+<summary>Danger</summary>
+<p>这里后端的筛选似乎是左闭右开区间？能否调整为闭区间？</p>
+</details>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>convID</td>
+<td>string</td>
+<td>会话 ID</td>
+<td>"asdfasdf"</td>
+</tr>
+<tr>
+<td>startTime</td>
+<td>Date</td>
+<td>起始时间</td>
+<td></td>
+</tr>
+<tr>
+<td>finishTime</td>
+<td>Date</td>
+<td>结束时间</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<details class="danger" open="open">
+<summary>Danger</summary>
+<p>这里的 msg 应修改为 <code>"Get message list by time successfully."</code></p>
+</details>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>msgList</td>
+<td>Message[]</td>
+<td>聊天记录列表</td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"Get message list by time successfully."</td>
+</tr>
+</tbody>
+</table>
+<p>其中，<code>Message</code> 类型包括：
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="err">_id</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 消息 ID</span>
+<span class="w">    </span><span class="err">co</span><span class="kc">ntent</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w">       </span><span class="c1">// 消息内容</span>
+<span class="w">    </span><span class="err">se</span><span class="kc">n</span><span class="err">der</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w">        </span><span class="c1">// 发送者用户名</span>
+<span class="w">    </span><span class="err">crea</span><span class="kc">te</span><span class="err">Time</span><span class="p">:</span><span class="w"> </span><span class="err">Da</span><span class="kc">te</span><span class="err">;</span><span class="w">      </span><span class="c1">// 消息创建时间</span>
+<span class="w">    </span><span class="err">re</span><span class="kc">f</span><span class="err">Cou</span><span class="kc">nt</span><span class="p">:</span><span class="w"> </span><span class="kc">nu</span><span class="err">mber;</span><span class="w">      </span><span class="c1">// 消息引用次数</span>
+<span class="w">    </span><span class="err">re</span><span class="kc">f</span><span class="err">Message</span><span class="p">:</span><span class="w"> </span><span class="err">Brie</span><span class="kc">f</span><span class="err">Msg;</span><span class="w">  </span><span class="c1">// 消息引用消息</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><code>BriefMsg</code> 类型是指：
+<div class="highlight"><pre><span></span><code><span class="err">i</span><span class="kc">nterfa</span><span class="err">ce</span><span class="w"> </span><span class="err">Brie</span><span class="kc">f</span><span class="err">Msg</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="err">msgID</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 消息 ID</span>
+<span class="w">    </span><span class="err">co</span><span class="kc">ntent</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 消息内容</span>
+<span class="w">    </span><span class="err">se</span><span class="kc">n</span><span class="err">der</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 发送者用户名</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<h2 id="register">/register</h2>
+<p>场景：用于用户注册</p>
+<p>类型：POST</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="17:3"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio" /><input id="__tabbed_17_2" name="__tabbed_17" type="radio" /><input id="__tabbed_17_3" name="__tabbed_17" type="radio" /><div class="tabbed-labels"><label for="__tabbed_17_1">请求头</label><label for="__tabbed_17_2">请求体</label><label for="__tabbed_17_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>本方法不需要提供任何请求头。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>用户名称</td>
+<td>"A1phaN"</td>
+</tr>
+<tr>
+<td>nickname</td>
+<td>string</td>
+<td>用户昵称</td>
+<td>"111"</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>用户密码</td>
+<td>"IamA1phaN"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"User Already Exists."</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="removefriend">/remove/friend</h2>
+<p>场景：删除好友</p>
+<p>类型：DELETE</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="18:3"><input checked="checked" id="__tabbed_18_1" name="__tabbed_18" type="radio" /><input id="__tabbed_18_2" name="__tabbed_18" type="radio" /><input id="__tabbed_18_3" name="__tabbed_18" type="radio" /><div class="tabbed-labels"><label for="__tabbed_18_1">请求头</label><label for="__tabbed_18_2">请求体</label><label for="__tabbed_18_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 DELETE 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>好友用户名称</td>
+<td>"Jimmy"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"They are not friends."</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="removegroup">/remove/group</h2>
+<p>场景：某用户退出群聊</p>
+<p>类型：DELETE</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="19:3"><input checked="checked" id="__tabbed_19_1" name="__tabbed_19" type="radio" /><input id="__tabbed_19_2" name="__tabbed_19" type="radio" /><input id="__tabbed_19_3" name="__tabbed_19" type="radio" /><div class="tabbed-labels"><label for="__tabbed_19_1">请求头</label><label for="__tabbed_19_2">请求体</label><label for="__tabbed_19_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 DELETE 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<details class="danger" open="open">
+<summary>Danger</summary>
+<p>这里真的需要 master 吗？还是说，前端在退出群聊前 assert 群主不能为当前用户？</p>
+</details>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groupID</td>
+<td>string</td>
+<td>群聊 ID</td>
+<td>"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"</td>
+</tr>
+<tr>
+<td>master</td>
+<td>string</td>
+<td>转让群主用户名</td>
+<td>"next-Master"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>若失败，返回错误信息</td>
+<td>"Exit from group successfully."</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="removegroupmember">/remove/group/member</h2>
+<p>场景：使某用户退出群聊</p>
+<p>类型：DELETE</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="20:3"><input checked="checked" id="__tabbed_20_1" name="__tabbed_20" type="radio" /><input id="__tabbed_20_2" name="__tabbed_20" type="radio" /><input id="__tabbed_20_3" name="__tabbed_20" type="radio" /><div class="tabbed-labels"><label for="__tabbed_20_1">请求头</label><label for="__tabbed_20_2">请求体</label><label for="__tabbed_20_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 DELETE 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groupID</td>
+<td>string</td>
+<td>群聊 id</td>
+<td>"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"</td>
+</tr>
+<tr>
+<td>memberName</td>
+<td>string</td>
+<td>待移除用户名称</td>
+<td>"Jimmy"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>若失败，返回错误信息</td>
+<td>"Group does not exist."</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="removeuser">/remove/user</h2>
+<p>场景：用于用户注销</p>
+<p>类型：DELETE</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="21:3"><input checked="checked" id="__tabbed_21_1" name="__tabbed_21" type="radio" /><input id="__tabbed_21_2" name="__tabbed_21" type="radio" /><input id="__tabbed_21_3" name="__tabbed_21" type="radio" /><div class="tabbed-labels"><label for="__tabbed_21_1">请求头</label><label for="__tabbed_21_2">请求体</label><label for="__tabbed_21_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 DELETE 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<details class="danger" open="open">
+<summary>Danger</summary>
+<p>前端仍然在 body 里传入了 username。后端似乎没有用到？</p>
+</details>
+<p>本方法不需要提供任何请求体。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"The user doesn't exist."</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="requestaccept">/request/accept</h2>
+<details class="danger" open="open">
+<summary>Danger</summary>
+<p>@route 里不是 apply，应该是 accept。</p>
+</details>
+<p>场景：通过他人的好友请求/入群请求</p>
+<p>类型：POST</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="22:3"><input checked="checked" id="__tabbed_22_1" name="__tabbed_22" type="radio" /><input id="__tabbed_22_2" name="__tabbed_22" type="radio" /><input id="__tabbed_22_3" name="__tabbed_22" type="radio" /><div class="tabbed-labels"><label for="__tabbed_22_1">请求头</label><label for="__tabbed_22_2">请求体</label><label for="__tabbed_22_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>requestID</td>
+<td>string</td>
+<td>请求 ID（当返回群组和好友申请列表的时候会需要这个属性）</td>
+<td>"1111"</td>
+</tr>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>被申请用户名称</td>
+<td>"Jimmy"</td>
+</tr>
+<tr>
+<td>groupID</td>
+<td>string</td>
+<td>被申请群聊 ID</td>
+<td>"111"</td>
+</tr>
+<tr>
+<td>sender</td>
+<td>string</td>
+<td>申请人用户名称</td>
+<td>"Ubec"</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>"group" or "friend"</td>
+<td>"group"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"Application accept successfully."</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="requestreject">/request/reject</h2>
+<p>场景：拒绝他人的好友请求/入群请求</p>
+<p>类型：POST</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="23:3"><input checked="checked" id="__tabbed_23_1" name="__tabbed_23" type="radio" /><input id="__tabbed_23_2" name="__tabbed_23" type="radio" /><input id="__tabbed_23_3" name="__tabbed_23" type="radio" /><div class="tabbed-labels"><label for="__tabbed_23_1">请求头</label><label for="__tabbed_23_2">请求体</label><label for="__tabbed_23_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>requestID</td>
+<td>string</td>
+<td>请求 ID（当返回群组和好友申请列表的时候会需要这个属性）</td>
+<td>"1111"</td>
+</tr>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>处理申请的用户名称</td>
+<td>"Jimmy"</td>
+</tr>
+<tr>
+<td>groupID</td>
+<td>string</td>
+<td>被申请群聊 ID</td>
+<td>"111"</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>"group" or "friend"</td>
+<td>"group"</td>
+</tr>
+<tr>
+<td>reason</td>
+<td>string</td>
+<td>拒绝理由</td>
+<td>"We're sorry."</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"Application reject successfully."</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="requestsend">/request/send</h2>
+<p>场景：发送好友请求/入群请求</p>
+<p>类型：POST</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="24:3"><input checked="checked" id="__tabbed_24_1" name="__tabbed_24" type="radio" /><input id="__tabbed_24_2" name="__tabbed_24" type="radio" /><input id="__tabbed_24_3" name="__tabbed_24" type="radio" /><div class="tabbed-labels"><label for="__tabbed_24_1">请求头</label><label for="__tabbed_24_2">请求体</label><label for="__tabbed_24_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>被申请用户名称</td>
+<td>"Jimmy"</td>
+</tr>
+<tr>
+<td>groupID</td>
+<td>string</td>
+<td>被申请群聊 ID</td>
+<td>"111"</td>
+</tr>
+<tr>
+<td>sender</td>
+<td>string</td>
+<td>申请人用户名称</td>
+<td>"Ubec"</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>"group" or "friend"</td>
+<td>"group"</td>
+</tr>
+<tr>
+<td>reason</td>
+<td>string</td>
+<td>申请语</td>
+<td>"Please let me join in!"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>requestID</td>
+<td>string</td>
+<td>请求 ID</td>
+<td>"1111"</td>
+</tr>
+<tr>
+<td>createTime</td>
+<td>Date</td>
+<td>申请发送成功时才返回创建时间，这个由数据库录入时生成再返还给前端</td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"Application sent successfully."</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="searchgroup">/search/group</h2>
+<p>场景：查询特定群聊信息</p>
+<p>类型：POST</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="25:3"><input checked="checked" id="__tabbed_25_1" name="__tabbed_25" type="radio" /><input id="__tabbed_25_2" name="__tabbed_25" type="radio" /><input id="__tabbed_25_3" name="__tabbed_25" type="radio" /><div class="tabbed-labels"><label for="__tabbed_25_1">请求头</label><label for="__tabbed_25_2">请求体</label><label for="__tabbed_25_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groupname</td>
+<td>string</td>
+<td>群聊昵称</td>
+<td>"A1phaN"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groupList</td>
+<td>Group[]</td>
+<td>满足要求的群聊列表</td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"Get group lists successfully."</td>
+</tr>
+</tbody>
+</table>
+<p>其中，<code>Group</code> 类型包括：
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="err">groupID</span><span class="p">:</span><span class="w"> </span><span class="err">Objec</span><span class="kc">t</span><span class="err">Id;</span><span class="w"> </span><span class="c1">// 群聊 ID</span>
+<span class="w">    </span><span class="err">group</span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 群聊名称</span>
+<span class="w">    </span><span class="err">ava</span><span class="kc">tar</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 群聊头像</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<h2 id="searchgroupmember">/search/group/member（已弃用）</h2>
+<details class="danger" open="open">
+<summary>Danger</summary>
+<p>该接口已被弃用。</p>
+<p>场景：通过群成员昵称查询特定群聊成员用户名称</p>
+<p>类型：POST</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="26:3"><input checked="checked" id="__tabbed_26_1" name="__tabbed_26" type="radio" /><input id="__tabbed_26_2" name="__tabbed_26" type="radio" /><input id="__tabbed_26_3" name="__tabbed_26" type="radio" /><div class="tabbed-labels"><label for="__tabbed_26_1">请求头</label><label for="__tabbed_26_2">请求体</label><label for="__tabbed_26_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groupID</td>
+<td>string</td>
+<td>群聊 ID</td>
+<td>"111231231414155"</td>
+</tr>
+<tr>
+<td>groupNickname</td>
+<td>string</td>
+<td>群成员昵称</td>
+<td>"test111"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>usernameList</td>
+<td>string[]</td>
+<td>用户名称列表</td>
+<td>["A1phaN", "Jimmy"]</td>
+</tr>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>若失败，返回错误信息</td>
+<td>"Such user does not exist."</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</details>
+<h2 id="searchuser">/search/user</h2>
+<p>场景：查询特定用户信息</p>
+<p>类型：POST</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="27:3"><input checked="checked" id="__tabbed_27_1" name="__tabbed_27" type="radio" /><input id="__tabbed_27_2" name="__tabbed_27" type="radio" /><input id="__tabbed_27_3" name="__tabbed_27" type="radio" /><div class="tabbed-labels"><label for="__tabbed_27_1">请求头</label><label for="__tabbed_27_2">请求体</label><label for="__tabbed_27_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nickname</td>
+<td>string</td>
+<td>用户昵称</td>
+<td>"A1phaN"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userList</td>
+<td>User[]</td>
+<td>满足要求的用户列表</td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"Friend found."</td>
+</tr>
+</tbody>
+</table>
+<p>其中，<code>User</code> 类型包括：
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="err">user</span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 用户名称</span>
+<span class="w">    </span><span class="kc">n</span><span class="err">ick</span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 用户昵称</span>
+<span class="w">    </span><span class="err">ava</span><span class="kc">tar</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 用户头像</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<h2 id="tag">/tag</h2>
+<p>场景：修改当前用户对某个用户的分组</p>
+<p>类型：POST</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="28:3"><input checked="checked" id="__tabbed_28_1" name="__tabbed_28" type="radio" /><input id="__tabbed_28_2" name="__tabbed_28" type="radio" /><input id="__tabbed_28_3" name="__tabbed_28" type="radio" /><div class="tabbed-labels"><label for="__tabbed_28_1">请求头</label><label for="__tabbed_28_2">请求体</label><label for="__tabbed_28_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>好友名称</td>
+<td>"Jimmy"</td>
+</tr>
+<tr>
+<td>tag</td>
+<td>string</td>
+<td>对该用户的分组名称</td>
+<td>"Family"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"Edit Tag successfully!"</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="userusername">/user/&lt;username&gt;</h2>
+<p>场景：用于获取用户信息</p>
+<p>类型：GET</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="29:3"><input checked="checked" id="__tabbed_29_1" name="__tabbed_29" type="radio" /><input id="__tabbed_29_2" name="__tabbed_29" type="radio" /><input id="__tabbed_29_3" name="__tabbed_29" type="radio" /><div class="tabbed-labels"><label for="__tabbed_29_1">请求头</label><label for="__tabbed_29_2">请求体</label><label for="__tabbed_29_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 GET 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<p>本方法不需要提供任何请求体。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td>User</td>
+<td>用户信息</td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"Successfully fetched user info."</td>
+</tr>
+</tbody>
+</table>
+<p>其中，<code>User</code> 类型包括：
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="err">user</span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 用户名称</span>
+<span class="w">    </span><span class="kc">n</span><span class="err">ick</span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 用户昵称</span>
+<span class="w">    </span><span class="err">descrip</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 用户个人简介</span>
+<span class="w">    </span><span class="err">ava</span><span class="kc">tar</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 用户头像</span>
+<span class="w">    </span><span class="err">email</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 用户邮箱</span>
+<span class="w">    </span><span class="err">las</span><span class="kc">t</span><span class="err">Logi</span><span class="kc">n</span><span class="err">Time</span><span class="p">:</span><span class="w"> </span><span class="err">Da</span><span class="kc">te</span><span class="w"> </span><span class="c1">// 用户上次登录时间</span>
+<span class="w">    </span><span class="err">password</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="err">i</span><span class="kc">n</span><span class="err">g;</span><span class="w"> </span><span class="c1">// 用户密码</span>
+<span class="w">    </span><span class="err">isO</span><span class="kc">nl</span><span class="err">i</span><span class="kc">ne</span><span class="p">:</span><span class="w"> </span><span class="err">boolea</span><span class="kc">n</span><span class="err">;</span><span class="w"> </span><span class="c1">// 用户是否在线</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<h2 id="useredit">/user/edit</h2>
+<details class="danger" open="open">
+<summary>Danger</summary>
+<p>修改成功不需要返回详细信息。</p>
+</details>
+<p>场景：用于修改个人信息</p>
+<p>类型：POST</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="30:3"><input checked="checked" id="__tabbed_30_1" name="__tabbed_30" type="radio" /><input id="__tabbed_30_2" name="__tabbed_30" type="radio" /><input id="__tabbed_30_3" name="__tabbed_30" type="radio" /><div class="tabbed-labels"><label for="__tabbed_30_1">请求头</label><label for="__tabbed_30_2">请求体</label><label for="__tabbed_30_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nickname</td>
+<td>string</td>
+<td>用户昵称</td>
+<td>"A1phaN"</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>用户密码</td>
+<td>"xxxx"</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>用户邮箱</td>
+<td>"deng@tsinghua.edu.cn"</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>用户个人简介</td>
+<td>"My name is A1phaN."</td>
+</tr>
+<tr>
+<td>avatar</td>
+<td>string</td>
+<td>用户头像</td>
+<td></td>
+</tr>
+<tr>
+<td>oldPassword</td>
+<td>string</td>
+<td>原密码</td>
+<td>"xxx"</td>
+</tr>
+<tr>
+<td>newPassword</td>
+<td>string</td>
+<td>新密码</td>
+<td>"yyy"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码：-1 表示错误；0 表示正常</td>
+<td>0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+<td>"Password Reset Successfully."</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="userreset">/user/reset（已弃用）</h2>
+<details class="danger" open="open">
+<summary>Danger</summary>
+<p>该接口已被弃用。</p>
+<p>场景：用于重置密码</p>
+<p>类型：POST</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="31:3"><input checked="checked" id="__tabbed_31_1" name="__tabbed_31" type="radio" /><input id="__tabbed_31_2" name="__tabbed_31" type="radio" /><input id="__tabbed_31_3" name="__tabbed_31" type="radio" /><div class="tabbed-labels"><label for="__tabbed_31_1">请求头</label><label for="__tabbed_31_2">请求体</label><label for="__tabbed_31_3">响应参数</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>使用 POST 方法请求该 API 时需要携带 JWT 令牌验证身份。请求头需要将 Authorization 字段设置为 JWT 令牌。</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>用户 token</td>
+<td>"x-abcdefghijklmnopqrstuvwxyz"</td>
+</tr>
+<tr>
+<td>old_password</td>
+<td>string</td>
+<td>旧密码</td>
+<td>"IamA1phaN"</td>
+</tr>
+<tr>
+<td>new_password</td>
+<td>string</td>
+<td>新密码</td>
+<td>"Iama1phan"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>类型</th>
+<th>参数说明</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>number</td>
+<td>状态码</td>
+<td>0</td>
+</tr>
+<tr>
+<td>errmsg</td>
+<td>string</td>
+<td>若失败，返回错误信息</td>
+<td>"The password is too simple."</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</details>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.action.edit", "admonition", "pymdownx.details", "pymdownx.superfences"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
