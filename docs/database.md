@@ -1,5 +1,15 @@
 # 数据库
 
+我们项目采用的是 MongoDB 数据库。
+
+![数据库](../assets/database.jpeg)
+
+## MongoDB 数据库
+
+这是 MongoDB 数据库与关系型数据库之间的差别：
+
+![MongoDB 数据库](../assets/mongodb.png)
+
 ## 1. 用户模块
 
 ### user 用户信息
@@ -117,4 +127,3 @@
 | msgID      | string           | Primary Key | 消息 ID  |
 | content    | string           |             | 消息内容   |
 | sender     | string           |             | 发送者用户名 |
-

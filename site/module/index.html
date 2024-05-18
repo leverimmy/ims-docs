@@ -484,6 +484,48 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="后端">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据库模块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      路由模块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      工具模块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      测试模块
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -692,6 +734,48 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="后端">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据库模块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      路由模块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      工具模块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      测试模块
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -778,6 +862,117 @@
 <h3 id="_11">群聊详细信息模块</h3>
 <p>该模块负责展示群聊的详细信息。它提供了一个界面，显示群聊的名称、群主、管理员列表、成员列表、群聊公告、群聊头像等详细信息。用户可以在该界面上查看群聊的基本信息，并进行与群聊相关的操作，如发送消息、添加成员、删除成员、编辑公告（如果有权限）等。群聊信息模块可以提供管理员权限管理、群聊设置和其他与群聊管理相关的功能。</p>
 <h2 id="_12">后端</h2>
+<p>前端分为<strong>数据库模块</strong>、<strong>路由模块</strong>、<strong>工具模块</strong>、<strong>测试模块</strong>，其中数据库/路由模块内部又分为<strong>用户模块</strong>、<strong>好友模块</strong>、<strong>群组模块</strong>、<strong>会话模块</strong>，测试模块涵盖以上所有模块。</p>
+<h3 id="_13">数据库模块</h3>
+<p>该模块负责处理所有数据库信息，包含数据库连接、用户模块、好友模块、群组模块与会话模块，每个模块内部还能细分：</p>
+<table>
+<thead>
+<tr>
+<th>用户模块</th>
+<th>好友模块</th>
+<th>群组模块</th>
+<th>会话模块</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td>friendship</td>
+<td>group</td>
+<td>convMessage</td>
+</tr>
+<tr>
+<td></td>
+<td>friendshipApplication</td>
+<td>groupMember</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>groupApplication</td>
+<td></td>
+</tr>
+<tr>
+<td>详情参见数据库相关说明。</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_14">路由模块</h3>
+<p>该模块负责定义所有路由处理函数，包括用户模块、好友模块、群组模块与会话模块。</p>
+<table>
+<thead>
+<tr>
+<th>用户模块</th>
+<th>好友模块</th>
+<th>群组模块</th>
+<th>会话模块</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>登录</td>
+<td>发送/接受/拒绝好友申请</td>
+<td>发送/接受/拒绝入群申请</td>
+<td>私聊</td>
+</tr>
+<tr>
+<td>注册</td>
+<td>编辑好友标签</td>
+<td>拉人建群</td>
+<td>群聊</td>
+</tr>
+<tr>
+<td>注销</td>
+<td>删除好友</td>
+<td>编辑群信息</td>
+<td>筛选聊天（全量/按时间/按发送者/按内容）记录</td>
+</tr>
+<tr>
+<td>获取个人信息（用户名、昵称、头像、简介、邮箱）</td>
+<td></td>
+<td>转让群主</td>
+<td>回复消息</td>
+</tr>
+<tr>
+<td>编辑个人信息</td>
+<td></td>
+<td>设置管理员</td>
+<td>未读计数</td>
+</tr>
+<tr>
+<td>修改密码</td>
+<td></td>
+<td>踢除群成员</td>
+<td>删除消息</td>
+</tr>
+<tr>
+<td>获取好友列表</td>
+<td></td>
+<td>退出群聊</td>
+<td></td>
+</tr>
+<tr>
+<td>获取群聊列表</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>获取申请列表</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_15">工具模块</h3>
+<p>该模块定义了特殊常量，以及加密函数、获取/验证 JWT 的函数、获取在线状态等功能函数，在 WebSocket 等技术当中需要调用该处的功能函数。</p>
+<h3 id="_16">测试模块</h3>
+<p>该模块定义了以上所有模块的测试文件。</p>
 
 
 
