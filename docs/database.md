@@ -2,13 +2,13 @@
 
 我们项目采用的是 MongoDB 数据库。
 
-![数据库](../assets/database.jpeg)
+![数据库](https://img.picgo.net/2024/05/20/database73d9199c88cba448.jpeg)
 
 ## MongoDB 数据库
 
 这是 MongoDB 数据库与关系型数据库之间的差别：
 
-![MongoDB 数据库](../assets/mongodb.png)
+![MongoDB 数据库](https://img.picgo.net/2024/05/20/mongodb4859b2e1634e463d.png)
 
 ## 1. 用户模块
 
