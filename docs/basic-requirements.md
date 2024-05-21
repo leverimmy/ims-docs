@@ -39,30 +39,30 @@ export async function verifyToken(token: string) {
 ### 前端添加 `auth=token` 字段
 
 ``` typescript title="im-frontend/src/pages/_app.tsx" linenums="69" hl_lines="13-16"
-        if(res.code === 0) {
-                console.log("START INIT");
-                const curUserCursor = await db.initConversations(token, username);
-                console.log("CURUSERCURSOR", curUserCursor);
-                if(updateUserCursor && curUserCursor) await updateUserCursor(curUserCursor);
-                console.log("AFTER INIT", userCursor);
-            }
+    if(res.code === 0) {
+            console.log("START INIT");
+            const curUserCursor = await db.initConversations(token, username);
+            console.log("CURUSERCURSOR", curUserCursor);
+            if(updateUserCursor && curUserCursor) await updateUserCursor(curUserCursor);
+            console.log("AFTER INIT", userCursor);
         }
-        init();
-      }, [loginTime]);
+    }
+    init();
+    }, [loginTime]);
 
-    useEffect(() => {
-        const curSocket = io(BACKEND_URL, {
-            transports: ["websocket"],
-            auth: { token }
-        });
-        if(username !== curUsername) {
-            curSocket.off(); // 清除原有所有通信事件
-            curSocket.emit("set username", username);
-            setCurUsername(username);
-        }
+useEffect(() => {
+    const curSocket = io(BACKEND_URL, {
+        transports: ["websocket"],
+        auth: { token }
+    });
+    if(username !== curUsername) {
+        curSocket.off(); // 清除原有所有通信事件
+        curSocket.emit("set username", username);
+        setCurUsername(username);
+    }
 
-        curSocket.on("update_member_cursor", async (memberName: string, conversationID: string, cursor: string) => {
-            const newCursor = userCursor;
+    curSocket.on("update_member_cursor", async (memberName: string, conversationID: string, cursor: string) => {
+        const newCursor = userCursor;
 ```
 
 ### 后端验证
@@ -94,78 +94,77 @@ export async function verifyToken(token: string) {
 ### 前端额外监听 `"send_msg_successfully"` 事件
 
 ``` typescript title="im-frontend/src/pages/_app.tsx" linenums="115" hl_lines="5-7"
-            db.addMessage(frontendMes);
-            dispatch(setLastUpdateTime(new Date().toString()));
-        });
+    db.addMessage(frontendMes);
+    dispatch(setLastUpdateTime(new Date().toString()));
+});
 
-        curSocket.on("send_msg_successfully", (messageId: string) => {
-            setReceivedMsgIds((prev) => [...prev, messageId]);
-        });
+curSocket.on("send_msg_successfully", (messageId: string) => {
+    setReceivedMsgIds((prev) => [...prev, messageId]);
+});
 
-        curSocket.on("group_chat", async (message) => {
-            console.log("RECEIVE GROUP CHAT");
-            const activeConversationId = db.activeConversationId;
-
+curSocket.on("group_chat", async (message) => {
+    console.log("RECEIVE GROUP CHAT");
+    const activeConversationId = db.activeConversationId;
 ```
 
 ### 后端处理监听事件
 
-``` typescript title="ims-backend/src/server.ts" linenums="204" hl_lines="12 19"
-                        io.to(groupID).emit("update_member_cursor", username, groupID, time);
-                    });
-                });
+``` typescript title="im-backend/src/server.ts" linenums="204" hl_lines="12 19"
+        io.to(groupID).emit("update_member_cursor", username, groupID, time);
+    });
+});
 
-                socket.on("private_chat", async (message: Message, ref: boolean) => {
-                    const sender = message.sender;
-                    const senders = getSocketIdByUsername(sender);
-                    const receiver = await friendshipModel.getFriendUsername(sender, message.conversation);
-                    const recipients = getSocketIdByUsername(receiver);
-                    const _id: string = message.id;
-                    await PrivateChat(message, ref);
-                    io.to(socket.id).emit("send_msg_successfully", message.id);
-                    await Recipients(recipients, io, _id, sender, message);
-                    await Senders(socket, senders, io, _id, sender, message);
-                });
+socket.on("private_chat", async (message: Message, ref: boolean) => {
+    const sender = message.sender;
+    const senders = getSocketIdByUsername(sender);
+    const receiver = await friendshipModel.getFriendUsername(sender, message.conversation);
+    const recipients = getSocketIdByUsername(receiver);
+    const _id: string = message.id;
+    await PrivateChat(message, ref);
+    io.to(socket.id).emit("send_msg_successfully", message.id);
+    await Recipients(recipients, io, _id, sender, message);
+    await Senders(socket, senders, io, _id, sender, message);
+});
 
-                socket.on("group_chat", async (message: Message, ref: boolean) => {
-                    await GroupChat(message, ref);
-                    io.to(socket.id).emit("send_msg_successfully", message.id);
-                    socket.broadcast.emit("group_chat", message);
-                });
+socket.on("group_chat", async (message: Message, ref: boolean) => {
+    await GroupChat(message, ref);
+    io.to(socket.id).emit("send_msg_successfully", message.id);
+    socket.broadcast.emit("group_chat", message);
+});
 
-                socket.on("disconnect", async () => {
-                    const username = getUserBySocketId(socket.id);
+socket.on("disconnect", async () => {
+    const username = getUserBySocketId(socket.id);
 ```
 
 ### 前端处理监听事件
 
 ``` typescript title="im-frontend/src/components/conversations/Chatbox.tsx" linenums="113" hl_lines="13-22"
-            setInputValue("");
-            return;
-        }
-        // 按下Enter键时发送消息，除非同时按下了Shift或Ctrl
-        if (!e.shiftKey && !e.ctrlKey) {
-            e.preventDefault(); // 阻止默认事件
-            e.stopPropagation(); // 阻止事件冒泡
-            await db.clearUnreadCount(conversation.id);
+        setInputValue("");
+        return;
+    }
+    // 按下Enter键时发送消息，除非同时按下了Shift或Ctrl
+    if (!e.shiftKey && !e.ctrlKey) {
+        e.preventDefault(); // 阻止默认事件
+        e.stopPropagation(); // 阻止事件冒泡
+        await db.clearUnreadCount(conversation.id);
 
-            const msgID: string = sendMessage(inputValue, roomId, conversation.type); // 调用发送消息函数
-            setInputValue("");
+        const msgID: string = sendMessage(inputValue, roomId, conversation.type); // 调用发送消息函数
+        setInputValue("");
 
-            setTimeout(() => {
-                // 如果在10秒内没有找到刚发的消息，则认为发送失败
-                if (receivedMsgIds && receivedMsgIds.indexOf(msgID) === -1) {
-                    // 从本地数据库中找到刚发的消息
-                    const curSendMessage = cachedMessagesRef.current.find((message) => message.id === msgID);
-                    // 更新发送状态，把这条消息的内容前加上 <发送失败>
-                    if (curSendMessage) curSendMessage.content = "<发送失败> " + curSendMessage.content;
-                    console.log("发送消息失败");
-                }
-            }, 1000 * 10); // 10秒
-        }
-    };
+        setTimeout(() => {
+            // 如果在10秒内没有找到刚发的消息，则认为发送失败
+            if (receivedMsgIds && receivedMsgIds.indexOf(msgID) === -1) {
+                // 从本地数据库中找到刚发的消息
+                const curSendMessage = cachedMessagesRef.current.find((message) => message.id === msgID);
+                // 更新发送状态，把这条消息的内容前加上 <发送失败>
+                if (curSendMessage) curSendMessage.content = "<发送失败> " + curSendMessage.content;
+                console.log("发送消息失败");
+            }
+        }, 1000 * 10); // 10秒
+    }
+};
 
 
-    return (
-        <div className={styles.container}>
+return (
+    <div className={styles.container}>
 ```
