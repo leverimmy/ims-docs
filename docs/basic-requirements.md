@@ -2,7 +2,9 @@
 
 ## 可用性 密码加密 & token 验证
 
-``` typescript title="im-backend/src/utils.ts" linenums="75" hl_lines="7 8 9"
+### 后端加密
+
+``` typescript title="im-backend/src/utils.ts" linenums="75" hl_lines="7-9"
 /**
    * @summary 生成带盐值的哈希处理过的密码
    * @param {string} password - 用户注册密码
@@ -15,11 +17,28 @@ export async function hashPassword(password: string) {
 }
 ```
 
+### 后端解密
 
+```typescript title="im-backend/src/utils.ts" linenums="5" hl_lines="6-8"
+// 解析并验证刷新令牌
+export async function verifyToken(token: string) {
+    try {
+        // 这里使用你的刷新令牌解码和验证逻辑
+        const fastify = await initFastify();
+        const decoded = fastify.jwt.verify(token);
+        // 验证用户是否有效及令牌未被撤销等操作...
+        return decoded;
+    } catch (error) {
+        throw new Error("Invalid refresh token");
+    }
+}
+```
 
 ## 避免 socket 直接传递的实现
 
-``` typescript title="im-frontend/src/pages/_app.tsx" linenums="69" hl_lines="13 14 15 16"
+### 前端添加 `auth=token` 字段
+
+``` typescript title="im-frontend/src/pages/_app.tsx" linenums="69" hl_lines="13-16"
         if(res.code === 0) {
                 console.log("START INIT");
                 const curUserCursor = await db.initConversations(token, username);
@@ -46,23 +65,25 @@ export async function hashPassword(password: string) {
             const newCursor = userCursor;
 ```
 
-``` typescript title="im-backend/src/server.ts" linenums="149" hl_lines="6 7 8 9 10"
+### 后端验证
+
+``` typescript title="im-backend/src/server.ts" linenums="149" hl_lines="6-11"
 (async () => {
     const fastify = await initFastify();
     const httpServer: HttpServer = fastify.server;
     const io = new SocketIOServer(httpServer);
 
     io.use(async (socket, next) => {
-      const token = socket.handshake.auth.token;
-      const verifyResult = await verifyToken(token);
-      if (verifyResult) next();
-      else next(new Error("Invalid token"));
+        const token = socket.handshake.auth.token;
+        const verifyResult = await verifyToken(token);
+        if (verifyResult) next();
+        else next(new Error("Invalid token"));
     });
 
     io.on("connection", (socket) => {
         socket.on("set username", async (username) => {
-          addUser(username, socket.id);
-          console.log(`Set ${socket.id}" username to ${username}`);
+            addUser(username, socket.id);
+            console.log(`Set ${socket.id}" username to ${username}`);
         });
 
         socket.on("join private_chat", (conversation) => {
@@ -70,7 +91,9 @@ export async function hashPassword(password: string) {
 
 ## 消息未成功发送提醒
 
-``` typescript title="im-frontend/src/pages/_app.tsx" linenums="115" hl_lines="5 6 7"
+### 前端额外监听 `"send_msg_successfully"` 事件
+
+``` typescript title="im-frontend/src/pages/_app.tsx" linenums="115" hl_lines="5-7"
             db.addMessage(frontendMes);
             dispatch(setLastUpdateTime(new Date().toString()));
         });
@@ -85,7 +108,38 @@ export async function hashPassword(password: string) {
 
 ```
 
-``` typescript title="im-frontend/src/components/conversations/Chatbox.tsx" linenums="113" hl_lines="13 14 15 16 17 18 19 20 21 22"
+### 后端处理监听事件
+
+``` typescript title="ims-backend/src/server.ts" linenums="204" hl_lines="12 19"
+                        io.to(groupID).emit("update_member_cursor", username, groupID, time);
+                    });
+                });
+
+                socket.on("private_chat", async (message: Message, ref: boolean) => {
+                    const sender = message.sender;
+                    const senders = getSocketIdByUsername(sender);
+                    const receiver = await friendshipModel.getFriendUsername(sender, message.conversation);
+                    const recipients = getSocketIdByUsername(receiver);
+                    const _id: string = message.id;
+                    await PrivateChat(message, ref);
+                    io.to(socket.id).emit("send_msg_successfully", message.id);
+                    await Recipients(recipients, io, _id, sender, message);
+                    await Senders(socket, senders, io, _id, sender, message);
+                });
+
+                socket.on("group_chat", async (message: Message, ref: boolean) => {
+                    await GroupChat(message, ref);
+                    io.to(socket.id).emit("send_msg_successfully", message.id);
+                    socket.broadcast.emit("group_chat", message);
+                });
+
+                socket.on("disconnect", async () => {
+                    const username = getUserBySocketId(socket.id);
+```
+
+### 前端处理监听事件
+
+``` typescript title="im-frontend/src/components/conversations/Chatbox.tsx" linenums="113" hl_lines="13-22"
             setInputValue("");
             return;
         }
