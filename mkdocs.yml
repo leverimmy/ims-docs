@@ -16,6 +16,8 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
+  - pymdownx.highlight:
+      anchor_linenums: true
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
@@ -28,8 +30,9 @@ extra_javascript:
 
 nav:
   - '首页': index.md
+  - '系统基本要求': basic-requirements.md
   - '需求分析':
-    - '用户故事': user_story.md
+    - '用户故事': user-story.md
     - '工作流程': workflow.md
   - '模块和 API':
     - '模块': module.md
